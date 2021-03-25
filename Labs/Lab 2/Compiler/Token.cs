@@ -54,30 +54,8 @@ namespace parser
             var lines = gdata.Split('\n');
             foreach (var line in lines)
             {   // EQ : :=  ->  ["EQ", ":=" ]
-                if (Regex.IsMatch(line, " : "))
-                {
-                    var twoHalves = Regex.Split(line, " : ");
-                    this.terminals.Add(new Terminal(twoHalves[0], new Regex(twoHalves[1])));
-                }
-                else if (Regex.IsMatch(line, " :"))
-                {
-                    var twoHalves = Regex.Split(line, " :");
-                    this.terminals.Add(new Terminal(twoHalves[0], new Regex(twoHalves[1])));
-                }
-                else if (Regex.IsMatch(line, ": "))
-                {
-                    var twoHalves = Regex.Split(line, ": ");
-                    this.terminals.Add(new Terminal(twoHalves[0], new Regex(twoHalves[1])));
-                }
-                else if (Regex.IsMatch(line, ":"))
-                {
-                    var twoHalves = Regex.Split(line, ":");
-                    this.terminals.Add(new Terminal(twoHalves[0], new Regex(twoHalves[1])));
-                }
-                else
-                {
-                    break;
-                }
+                var twoHalves = Regex.Split(line, ":");
+                this.terminals.Add(new Terminal(twoHalves[0].Trim(), new Regex(twoHalves[1].Trim())));
             }
             foreach (var token in this.terminals)
             {
@@ -102,93 +80,56 @@ namespace parser
         }
         public Token next()
         {
-            while (true)
+            //this.counter = 0;
+            if (this.idx >= inputLength)
             {
-                if (this.idx >= inputLength && !(this.tokenList.FindIndex(Token => Token.Symbol == "$") >= 0))
+                Console.WriteLine("EOF");
+                //this.tokenList.Add(new Token("$", "", -1));
+                return new Token("$", "", -1);
+            }
+            else
+            {
+                foreach (Terminal term in this.terminals)
                 {
-                    Console.WriteLine("EOF");
-                    this.tokenList.Add(new Token("$", "", -1));
-                }
-                else
-                {
-                    while (this.idx < this.inputLength)
+                    //Match m = term.rex.Match(input,this.idx);
+                    Match m = term.rex.Match(input);
+                    if (m.Success)
                     {
-                        foreach (Terminal term in this.terminals)
+                        if (m.Index == 0)
                         {
-                            Match m = term.rex.Match(input);
-                            if (m.Success)
+                            input = input.Remove(0, m.Length);
+                            this.idx = this.idx + m.Length;
+                            if (term.sym == "WHITESPACE")
                             {
-                                if (m.Index == 0)
-                                {
-                                    input = input.Remove(0, m.Length);
-                                    if (term.sym != "WHITESPACE")
-                                    {
-                                        Console.WriteLine(new Token(term.sym, m.Value, (this.lineNum + 1)));
-                                        this.tokenList.Add(new Token(term.sym, m.Value, (this.lineNum + 1)));
-                                    }
-                                    this.idx = this.idx + m.Length;
-                                    this.counter = 0;
-                                }
+                                return next();
+                                //this.tokenList.Add(new Token(term.sym, m.Value, (this.lineNum + 1)));
                             }
-
-                            Match newLine = newLineRex.Match(input);
-                            if (newLine.Success)
-                            {
-                                if (newLine.Index == 0)
-                                {
-                                    input = input.Remove(0, newLine.Length);
-                                    this.idx = this.idx + newLine.Length;
-                                    this.lineNum = this.lineNum + newLine.Length;
-                                    this.counter = 0;
-                                }
-                            }
-
-                            Match whiteSpace = whiteSpaceRex.Match(input);
-                            if (whiteSpace.Success)
-                            {
-                                if (whiteSpace.Index == 0)
-                                {
-                                    input = input.Remove(0, whiteSpace.Length);
-                                    this.idx = this.idx + whiteSpace.Length;
-                                    this.counter = 0;
-                                }
-                            }
-                            if (this.counter > this.terminals.Count)
-                            {
-                                Console.WriteLine("Return tokens before exception");
-                                if (this.tokenList.Count != 0)
-                                {
-                                    Console.WriteLine("Token Popped: " + this.tokenList.First());
-                                    Token temp = tokenList[0];
-                                    this.idx = 0;
-                                    this.tokenList.RemoveAt(0);
-                                    return temp;
-                                }
-                                this.counter = 0;
-                                throw new InvalidOperationException("Out of Range Error");
-                            }
-                            this.counter++;
+                            //JH
+                            else
+                                return new Token(term.sym, m.Value, (this.lineNum + 1));
+                            //this.counter = 0;
                         }
                     }
                 }
-                Console.WriteLine("returning temps");
-                if (this.tokenList.FindIndex(Token => Token.Symbol == "$") >= 0)
-                {
+                throw new InvalidOperationException("Out of Range Error");
+            }
+            Console.WriteLine("returning temps");
+            if (this.tokenList.FindIndex(Token => Token.Symbol == "$") >= 0)
+            {
 
-                    int comments = this.tokenList.Count(Token => Token.Symbol == "COMMENT");
-                    //Console.WriteLine("comment count" + comments);
-                    while (comments > 0)
-                    {
-                        this.tokenList.RemoveAt(this.tokenList.FindIndex(Token => Token.Symbol == "COMMENT"));
-                        comments--;
-                    }
-                    Console.WriteLine("Token Popped: " + this.tokenList.First());
-                    Token temp = tokenList[0];
-                    if (this.tokenList[0].Symbol == "$")
-                        this.idx = 0;
-                    this.tokenList.RemoveAt(0);
-                    return temp;
+                int comments = this.tokenList.Count(Token => Token.Symbol == "COMMENT");
+                //Console.WriteLine("comment count" + comments);
+                while (comments > 0)
+                {
+                    this.tokenList.RemoveAt(this.tokenList.FindIndex(Token => Token.Symbol == "COMMENT"));
+                    comments--;
                 }
+                Console.WriteLine("Token Popped: " + this.tokenList.First());
+                Token temp = tokenList[0];
+                if (this.tokenList[0].Symbol == "$")
+                    this.idx = 0;
+                this.tokenList.RemoveAt(0);
+                return temp;
             }
         }
     }
