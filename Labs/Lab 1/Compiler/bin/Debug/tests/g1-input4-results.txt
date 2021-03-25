@@ -1,0 +1,12 @@
+IDENTIFIER
+1
+foo
+ADDOP
+1
+-
+IDENTIFIER
+1
+bar
+$
+2
+

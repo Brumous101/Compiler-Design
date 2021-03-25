@@ -1,0 +1,97 @@
+grammar g;
+
+ACTOR :  \b ( Romeo | Juliet | Tybalt | Benvolio | Othello ) \b;
+PERIOD : [.];
+QUESTION : [?];
+EXCLAMATION : !;
+COMMA : , ;
+COLON : : ;
+IO:   \bspeak  \s+ your \s+ mind\b
+    | \bopen   \s+ your \s+ mind\b
+    | \bopen   \s+ your \s+ heart\b
+    | \blisten \s+ to   \s+ your \s+ heart\b ;
+LBRACKET : [[] ;
+RBRACKET : [\]] ;
+ENTER : \benter\b;
+EXIT : \bexit\b;
+EXEUNT : \bexeunt\b;
+OMNES : \bomnes\b;
+AND : \band\b;
+YOU : \b ( you | thou ) \b;
+ARE : \b ( are | art ) \b;
+A : \ba\b;
+AN : \ban\b;
+THE : \bthe\b;
+I: \bI\b;
+AM:\bam\b;
+AS:\bas\b;
+MY:\bmy\b;
+HER:\bher\b;
+HIS:\bhis\b;
+MYSELF:\bmyself\b;
+YOURSELF:\byourself\b;
+YOUR:\byour\b;
+NOTHING:\bnothing\b;
+
+POS_NOUN : \b ( king | queen | peach | mountaineer 
+         | handbag | plum | summer's \s+ day ) \b;
+NEG_NOUN : \b ( ruffian | toad | barbermonger | fustilarian ) \b;
+POS_ADJ : \b ( good | red | embroidered | beautiful 
+        | mighty | sunny | wonderful | amazing | cunning 
+        | lovely | fine | gentle | handsome | lovely | peaceful ) \b;
+NEG_ADJ : \b ( wretched | featureless | vile | ugly ) \b;
+WHITESPACE : \s+ -> skip;
+ANYWORD : XYZ ;
+
+start : title dramatisPersonae lines;
+
+title : wordlist peq;
+peq : PERIOD | QUESTION | EXCLAMATION;
+pe : PERIOD | EXCLAMATION;
+
+dramatisPersonae : ACTOR COMMA wordlist peq dramatisPersonae
+                  | ACTOR COMMA wordlist peq;
+                  
+lines: line lines | line;
+line: ACTOR COLON statements | enterStmt | exitStmt ;
+statements : statement statements | statement ;
+statement : IO pe | assignment pe | self pe | 
+			copyfromself pe | nothingassignment pe |
+            ownershipassignment pe | voidassignment pe|
+            possessiveassignment pe | tempassignment pe|
+            compareassignment pe | simileassignment pe|
+            simileassignment2 pe | disbeliefassignment pe|
+            copyfromself2 pe | copyotherassignment pe | 
+            yoursassignment pe;
+
+self : I AM A adjList noun;
+assignment : YOU ARE article adjList noun;
+copyfromself: YOU ARE AS adjList AS MYSELF;
+copyfromself2: YOU ARE MYSELF;
+copyotherassignment: YOU ARE ACTOR;
+nothingassignment: YOU ARE YOURSELF;
+ownershipassignment: YOU ARE YOUR adjList noun;
+voidassignment: YOU ARE NOTHING;
+possessiveassignment: YOU ARE MY adjList noun;
+tempassignment: YOU ARE HER noun | YOU ARE HIS noun;
+compareassignment: YOU ARE AS adjList AS ACTOR;
+simileassignment: YOU ARE AS adjList AS A noun;
+simileassignment2: YOU ARE AS adjList AS AN adjList noun;
+disbeliefassignment: YOU adjList noun;
+yoursassignment: I AM YOUR adjList noun;
+
+article : A | AN | THE;
+noun : POS_NOUN | NEG_NOUN;
+adj : POS_ADJ | NEG_ADJ;
+adjList : adj adjList | ;
+
+enterStmt : LBRACKET ENTER ACTOR RBRACKET | LBRACKET ENTER actorlist RBRACKET;
+exitStmt : LBRACKET EXIT ACTOR RBRACKET
+         | LBRACKET EXEUNT actorlist RBRACKET
+         | LBRACKET EXEUNT OMNES RBRACKET
+         | LBRACKET EXEUNT RBRACKET ;
+actorlist : ACTOR COMMA actorlist | ACTOR AND ACTOR;
+
+wordlist : anyword wordlist | anyword ;
+anyword : ACTOR | IO | ANYWORD | ENTER | EXIT | EXEUNT | OMNES | AND | POS_NOUN
+        | NEG_NOUN | POS_ADJ | NEG_ADJ | article;

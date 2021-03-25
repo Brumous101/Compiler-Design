@@ -1,0 +1,220 @@
+grammar g;
+
+ACT : \bAct\b;
+SCENE : \bScene\b;
+ACTOR :  \b (
+        Romeo | Juliet | Tybalt | Benvolio | Othello | Lady \s+ Macbeth | 
+        Doctor \s+ Butts | Bottom | All \s+ the \s+ Goths | 
+        All \s+ Conspirators | Bastard \s+ of \s+ Orleans | 
+        Cinna \s+ the \s+ Poet | Henry \s+ VIII | Horatio | 
+        Old \s+ Man | Old \s+ Gobbo | The \s+ Ghost | Vaux |
+        Thomas \s+ Wart
+    ) \b ;
+
+PERIOD : [.];
+QUESTION : [?];
+EXCLAMATION : !;
+COMMA : , ;
+COLON : : ;
+IO:   \bspeak  \s+ your \s+ mind\b
+    | \bopen   \s+ your \s+ mind\b
+    | \bopen   \s+ your \s+ heart\b
+    | \blisten \s+ to   \s+ your \s+ heart\b ;
+LBRACKET : [[] ;
+RBRACKET : [\]] ;
+ENTER : \benter\b;
+EXIT : \bexit\b;
+EXEUNT : \bexeunt\b;
+OMNES : \bomnes\b;
+AND : \band\b;
+YOU : \b ( you | thou ) \b;
+ARE : \b ( are | art ) \b;
+ARTICLE : \b ( a | an ) \b;
+THE : \bthe\b;
+POS_NOUN : \b ( purse | lad | pony | king | queen | peach | mountaineer 
+         | handbag | plum | summer's \s+ day ) \b;
+NEG_NOUN : \b ( flibbertigibbet | hag | ruffian | toad | barbermonger | fustilarian ) \b;
+POS_ADJ : \b ( furry | good | fancy | red | embroidered | beautiful 
+        | mighty | sunny | wonderful | amazing | cunning 
+        | lovely | fine | gentle | handsome | lovely | peaceful ) \b;
+NEG_ADJ : \b ( bad | dishonest | wretched | featureless | vile | ugly ) \b;
+I : \bI\b;
+AM : \bam\b;
+AS : \bas\b;
+POSSESSIVE : \b ( my | your | his | her ) \b;
+MYSELF : \b ( myself | me ) \b;
+YOURSELF : \b ( yourself | thyself ) \b;
+NOTHING : \bnothing\b;
+SUM : \bsum\b;
+DIFFERENCE : \bdifference\b;
+PRODUCT : \bproduct\b;
+QUOTIENT : \bquotient\b;
+REMAINDER : \bremainder\b;
+ROOT : \broot\b;
+SQUARE : \bsquare\b;
+CUBE : \bcube\b;
+TWICE : \btwice\b;
+THRICE : \bthrice\b;
+BOTH : \bboth\b;
+EITHER : \beither\b;
+OR : \bor\b;
+OF : \bof\b;
+BETWEEN : \bbetween\b;
+HALF : \bhalf\b;
+OPPOSITE : \bopposite\b; 
+
+SOME_ROMAN_NUMBERS : \b 
+    (
+        (
+            M+
+            (C{1,3}|C?D|D C{1,3}|CM)?
+            (X{1,3}|X?L|L X{0,3}|XC)?
+            (I{1,3}|I?V|V I{1,3}|IX)?
+        ) | 
+        (
+            (C{1,3}|C?D|D C{1,3}|CM)
+            (X{1,3}|X?L|L X{0,3}|XC)?
+            (I{1,3}|I?V|V I{1,3}|IX)?
+        ) |
+        (
+            (C{1,3}|C?D|D C{1,3}|CM)?
+            (X{1,3}|X?L|L X{0,3}|XC)
+            (I{1,3}|I?V|V I{1,3}|IX)?
+        ) |
+        (
+            (C{1,3}|C?D|D C{1,3}|CM)?
+            (X{1,3}|X?L|L X{0,3}|XC)?
+            (I{1,3}|I?V|V I{1,3}|IX)
+        )
+    ) \b;
+
+DIFFERENT: \bdifferent\b;
+FROM:\bfrom\b;
+PROCEED : \bproceed\b;
+POSTHASTE : \bposthaste\b;
+LET : \blet\b;
+US : \bus\b;
+WE : \bwe\b;
+SHALL : \bshall\b;
+MUST : \bmust\b;
+OUGHT : \bought\b;
+TO : \bto\b;
+RETURN : \breturn\b;
+WORSE: \bworse\b;
+BETTER: \bbetter\b;
+LESS: \bless\b;
+MORE: \bmore\b;
+LESSER: \blesser\b;
+IS: \bis\b;
+THAN: \bthan\b;
+AT: \bat\b;
+LEAST:\bleast\b;
+MOST:\bmost\b;
+
+WHITESPACE : \s+ -> skip;
+
+//must be last
+ANYWORD : XYZ ; //[A-Za-z]+ ;
+
+start : title dramatisPersonae actlist;
+
+actlist : act actlist | act ;
+
+//I is parsed as the word I, not the roman number
+act :  ACT SOME_ROMAN_NUMBERS COLON wordlist peq scenelist 
+    |  ACT I COLON wordlist peq scenelist;
+    
+scenelist : scene scenelist | scene;
+scene : SCENE SOME_ROMAN_NUMBERS COLON wordlist peq statementlist
+      | SCENE I COLON wordlist peq statementlist;
+      
+statementlist : statement statementlist |  /*lambda*/ ;
+
+title : wordlist peq;
+peq : PERIOD | QUESTION | EXCLAMATION;
+pe : PERIOD | EXCLAMATION;
+
+dramatisPersonae : ACTOR COMMA wordlist peq dramatisPersonae
+                  | ACTOR COMMA wordlist peq;
+
+statement : enterStmt | exitStmt | line ;
+                  
+line: ACTOR COLON sentences ;
+
+sentences : sentence sentences | sentence ;
+
+sentence : IO pe | assignment pe | goto pe | conditional;
+
+assignment : YOU ARE AS adj AS arithmetic
+           | YOU ARE arithmetic
+           | YOU value
+           | I AM arithmetic ;
+
+conditional: AM I comparisons | ARE YOU comparisons | IS arithmetic | IS arithmetic comparisons;
+
+comparisons: asascomps arithmetic QUESTION 
+	| atleastatmostcomps arithmetic QUESTION
+	| thancomps arithmetic QUESTION 
+	| greaterlessercomps arithmetic QUESTION
+  	| fromcomps arithmetic QUESTION;
+    
+atleastatmostcomps: AT LEAST asascomps | AT MOST asascomps;
+
+fromcomps: DIFFERENT FROM;
+
+asascomps: AS adjList AS;
+
+thancomps: compwords THAN;
+
+compwords: WORSE | BETTER | LESS | MORE | LESSER;
+
+greaterlessercomps: MORE adjList THAN | LESS adjList THAN ;
+
+arithmetic : ARTICLE value | THE value | POSSESSIVE value | YOU | MYSELF | YOURSELF | ACTOR
+           | NOTHING
+           | THE SUM OF arithmetic AND arithmetic
+           | THE DIFFERENCE BETWEEN arithmetic AND arithmetic
+           | THE PRODUCT OF arithmetic AND arithmetic
+           | THE QUOTIENT OF arithmetic AND arithmetic
+           | THE QUOTIENT BETWEEN arithmetic AND arithmetic
+           | THE REMAINDER OF arithmetic AND arithmetic
+           | THE REMAINDER BETWEEN arithmetic AND arithmetic
+           | THE SQUARE OF arithmetic
+           | THE CUBE OF arithmetic
+           | THE SQUARE ROOT OF arithmetic
+           | TWICE arithmetic
+           | THRICE arithmetic
+           | HALF arithmetic
+           | BOTH arithmetic AND arithmetic
+           | EITHER arithmetic OR arithmetic
+           | THE OPPOSITE OF arithmetic;
+
+value : adjList noun | noun;
+
+noun : POS_NOUN | NEG_NOUN;
+adj : POS_ADJ | NEG_ADJ;
+adjList : adj adjList | ;
+
+enterStmt : LBRACKET ENTER ACTOR RBRACKET | LBRACKET ENTER actorlist RBRACKET;
+exitStmt : LBRACKET EXIT ACTOR RBRACKET
+         | LBRACKET EXEUNT actorlist RBRACKET
+         | LBRACKET EXEUNT OMNES RBRACKET
+         | LBRACKET EXEUNT RBRACKET ;
+actorlist : ACTOR COMMA actorlist | ACTOR AND ACTOR;
+
+
+let_us : LET US | WE SHALL | WE MUST | WE OUGHT TO;
+
+goto : let_us PROCEED TO gotoTarget
+     | let_us PROCEED POSTHASTE TO gotoTarget
+     | let_us RETURN ;
+
+gotoTarget : ACT SOME_ROMAN_NUMBERS COMMA SCENE SOME_ROMAN_NUMBERS
+           | ACT I COMMA SCENE SOME_ROMAN_NUMBERS
+           | ACT SOME_ROMAN_NUMBERS COMMA SCENE I
+           | ACT I COMMA SCENE I ;
+
+
+wordlist : anyword wordlist | anyword ;
+anyword : ACTOR | IO | ANYWORD | ENTER | EXIT | EXEUNT | OMNES | AND | POS_NOUN
+        | NEG_NOUN | POS_ADJ | NEG_ADJ | ARTICLE;

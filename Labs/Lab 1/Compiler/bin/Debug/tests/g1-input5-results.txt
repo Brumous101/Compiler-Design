@@ -1,0 +1,12 @@
+IDENTIFIER
+1
+bar
+IDENTIFIER
+2
+baz
+IDENTIFIER
+3
+bam
+$
+4
+

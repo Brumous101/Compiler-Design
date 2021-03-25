@@ -1,0 +1,21 @@
+grammar g;
+
+ACTOR : \b ( Romeo | Juliet | Tybalt | Benvolio | Othello ) \b ;
+COMMA : , ;
+PERIOD : [.] ;
+QUESTION : [?] ;
+EXCLAMATION : ! ;
+COLON : : ;
+WHITESPACE : \s -> skip;
+ANYWORD : [A-Z][a-z]+ ;
+
+start : title dramatisPersonae;
+title : wordlist peq;
+peq : PERIOD | QUESTION | EXCLAMATION;
+dramatisPersonae :   ACTOR COMMA wordlist peq dramatisPersonae
+                    | ACTOR COMMA wordlist peq
+                    | ACTOR COLON wordlist peq dramatisPersonae
+                    | ACTOR COLON wordlist peq wordlist peq
+                    | ACTOR COLON wordlist peq;
+wordlist : anyword wordlist | anyword;
+anyword : ANYWORD | ACTOR ;

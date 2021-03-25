@@ -1,0 +1,161 @@
+grammar g;
+
+ACTOR :  \b (Romeo
+        | Juliet
+        | Tybalt
+        | Benvolio
+        | Lady\s+Macbeth
+        | Doctor\s+Butts
+        | Bottom
+        | All\s+the\s+Goths
+        | All\s+Conspirators
+        | Bastard\s+of\s+Orleans
+        | Cinna\s+the\s+Poet
+        | Henry\s+VIII
+        | Horatio
+        | Old\s+Man
+        | Old\s+Gobbo
+        | The\s+Ghost
+        | Vaux
+        | Thomas\s+Wart) \b;
+PERIOD : [.];
+QUESTION : [?];
+EXCLAMATION : !;
+COMMA : , ;
+COLON : : ;
+IO:   \bspeak  \s+ your \s+ mind\b
+    | \bopen   \s+ your \s+ mind\b
+    | \bopen   \s+ your \s+ heart\b
+	| \bI \s+ am \s+ a \s+ king\b
+    | \blisten \s+ to   \s+ your \s+ heart\b 
+    | \bWe \s+ shall \s+ return\b
+    | \bWe \s+ must \s+ return \b
+    | \bLet \s+ us \s+ return \b
+    | \bWe \s+ ought \s+ to \s+ return \b
+    | \bWe \s+ shall \s+ proceed \s+ to \b
+    | \bWe \s+ must \s+ proceed \s+ to \b
+    | \bWe \s+ ought \s+ to \s+ proceed\s+ to \b
+    | \bWe \s+ must \s+ proceed \s+ posthaste \s+ to \b
+    | \bWe \s+ ought \s+ to \s+ proceed \s+ posthaste \s+ to \b
+    | \bLet \s+ us \s+ proceed \s+ to \b
+    | \bLet \s+ us \s+ proceed \s+ posthaste \s+ to \b;
+LBRACKET : [[] ;
+RBRACKET : [\]] ;
+ENTER : \benter\b;
+EXIT : \bexit\b;
+EXEUNT : \bexeunt\b;
+OMNES : \bomnes\b;
+AND : \band\b;
+YOU : \b ( you | thou ) \b;
+ARE : \b ( are | art ) \b;
+ARTICLE : \b ( a | an ) \b;
+THE : \bthe\b;
+POS_NOUN : \b ( purse | lad | pony | king | queen | peach | mountaineer 
+         | handbag | plum | summer's \s+ day ) \b;
+NEG_NOUN : \b ( flibbertigibbet | hag | ruffian | toad | barbermonger | fustilarian ) \b;
+POS_ADJ : \b ( good | fancy | red | embroidered | beautiful 
+        | mighty | sunny | wonderful | amazing | cunning 
+        | lovely | fine | gentle | handsome | lovely | peaceful ) \b;
+NEG_ADJ : \b ( bad| dishonest | wretched | featureless | vile | ugly ) \b;
+
+ROMAN_NUMERALS: \b ([I|V|X|C|D|L|M]+) \b;
+
+I : \bI\b;
+AM : \bam\b;
+AS : \bas\b;
+POSSESSIVE : \b ( my | your | his | her ) \b;
+MYSELF : \b ( myself | me ) \b;
+YOURSELF : \b ( yourself | thyself ) \b;
+NOTHING : \bnothing\b;
+SUM : \bsum\b;
+DIFFERENCE : \bdifference\b;
+PRODUCT : \bproduct\b;
+QUOTIENT : \bquotient\b;
+REMAINDER : \bremainder\b;
+ROOT : \broot\b;
+SQUARE : \bsquare\b;
+CUBE : \bcube\b;
+TWICE : \btwice\b;
+THRICE : \bthrice\b;
+BOTH : \bboth\b;
+EITHER : \beither\b;
+OR : \bor\b;
+OF : \bof\b;
+BETWEEN : \bbetween\b;
+HALF : \bhalf\b;
+OPPOSITE : \bopposite\b; 
+
+ACT : \bact\b;
+SCENE: \bscene\b;
+
+WHITESPACE : \s+ -> skip;
+
+//must be last
+ANYWORD : [A-Za-z]+ ;
+
+start : title dramatisPersonae timerelation lines;
+
+title : wordlist peq;
+peq : PERIOD | QUESTION | EXCLAMATION;
+pe : PERIOD | EXCLAMATION;
+
+dramatisPersonae : ACTOR COMMA wordlist peq dramatisPersonae
+                  | ACTOR COMMA wordlist peq
+                  | timerelation dramatisPersonae
+                  | timerelation;
+
+timerelation: ACT ROMAN_NUMERALS COLON anyword pe
+			| SCENE ROMAN_NUMERALS COLON anyword pe; 
+
+lines: line lines | line;
+
+line: ACTOR COLON statements | enterStmt | exitStmt | timerelation;
+
+statements : statement statements | statement ;
+statement : IO pe | assignment pe | changeplace pe;
+
+changeplace:  IO actnumber COMMA scenenumber 
+			| IO actnumber
+            | IO scenenumber;
+scenenumber: SCENE ROMAN_NUMERALS;
+actnumber: ACT ROMAN_NUMERALS;
+assignment : YOU ARE AS adj AS arithmetic
+           | YOU ARE arithmetic
+           | YOU value
+           | I AM arithmetic ;
+
+arithmetic : ARTICLE value | THE value | POSSESSIVE value | YOU | MYSELF | YOURSELF | ACTOR
+           | NOTHING
+           | THE SUM OF arithmetic AND arithmetic
+           | THE DIFFERENCE BETWEEN arithmetic AND arithmetic
+           | THE PRODUCT OF arithmetic AND arithmetic
+           | THE QUOTIENT OF arithmetic AND arithmetic
+           | THE QUOTIENT BETWEEN arithmetic AND arithmetic
+           | THE REMAINDER OF arithmetic AND arithmetic
+           | THE REMAINDER BETWEEN arithmetic AND arithmetic
+           | THE SQUARE OF arithmetic
+           | THE CUBE OF arithmetic
+           | THE SQUARE ROOT OF arithmetic
+           | TWICE arithmetic
+           | THRICE arithmetic
+           | HALF arithmetic
+           | BOTH arithmetic AND arithmetic
+           | EITHER arithmetic OR arithmetic
+           | THE OPPOSITE OF arithmetic;
+
+value : adjList noun | noun;
+
+noun : POS_NOUN | NEG_NOUN;
+adj : POS_ADJ | NEG_ADJ;
+adjList : adj adjList | ;
+
+enterStmt : LBRACKET ENTER ACTOR RBRACKET | LBRACKET ENTER actorlist RBRACKET;
+exitStmt : LBRACKET EXIT ACTOR RBRACKET
+         | LBRACKET EXEUNT actorlist RBRACKET
+         | LBRACKET EXEUNT OMNES RBRACKET
+         | LBRACKET EXEUNT RBRACKET ;
+actorlist : ACTOR COMMA actorlist | ACTOR AND ACTOR;
+
+wordlist : anyword wordlist | anyword ;
+anyword : ACTOR | IO | ANYWORD | ENTER | EXIT | EXEUNT | OMNES | AND | POS_NOUN
+        | NEG_NOUN | POS_ADJ | NEG_ADJ | ARTICLE;

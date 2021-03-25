@@ -1,0 +1,148 @@
+grammar g;
+
+ACTOR :  \b ( Romeo | Juliet | Tybalt | Benvolio | Othello ) \b;
+PERIOD : [.];
+QUESTION : [?];
+EXCLAMATION : !;
+COMMA : , ;
+COLON : : ;
+IO:   \bspeak  \s+ your \s+ mind\b
+    | \bopen   \s+ your \s+ mind\b
+    | \bopen   \s+ your \s+ heart\b
+    | \blisten \s+ to   \s+ your \s+ heart\b ;
+LBRACKET : [[] ;
+RBRACKET : [\]] ;
+ENTER : \benter\b;
+EXIT : \bexit\b;
+EXEUNT : \bexeunt\b;
+OMNES : \bomnes\b;
+AND : \band\b;
+YOU : \b ( you | thou ) \b;
+ARE : \b ( are | art ) \b;
+ARTICLE : \b ( a | an | the ) \b;
+THE:\bthe\b;
+AN:\ban\b;
+POS_NOUN : \b ( purse | lad | pony | king | queen | peach | mountaineer 
+         | handbag | plum | summer's \s+ day ) \b;
+NEG_NOUN : \b ( flibbertigibbet| ruffian | toad | barbermonger | fustilarian | hag ) \b;
+POS_ADJ : \b ( fancy | good | red | embroidered | beautiful 
+        | mighty | sunny | wonderful | amazing | cunning 
+        | lovely | fine | gentle | handsome | lovely | peaceful ) \b;
+NEG_ADJ : \b ( dishonest| wretched | featureless | vile | ugly ) \b;
+
+
+I : \bI\b;
+AM : \bam\b;
+AS : \bas\b;
+POSSESSIVE : \b ( my | your | his | her ) \b;
+MYSELF : \b ( myself | me ) \b;
+YOURSELF : \byourself\b;
+THYSELF : \bthyself\b;
+BOTH:\bboth\b;
+NOTHING : \bnothing\b;
+OR:\bor\b;
+
+OPERATIONS: \b ( sum | difference | product | quotient | remainder ) \b;
+MULTIPLIER: \b(square\s+root | square | twice | thrice| half | cube)\b;
+EITHER: \beither\b;
+THEOPPOSITE: \bthe\s+opposite\b;
+OF: \bof\b;
+BETWEEN: \bbetween\b;
+WHITESPACE : \s+ -> skip;
+
+//must be last
+ANYWORD : [A-Za-z] ;
+
+start : title dramatisPersonae lines;
+
+title : wordlist peq;
+peq : PERIOD | QUESTION | EXCLAMATION;
+pe : PERIOD | EXCLAMATION;
+
+dramatisPersonae : ACTOR COMMA wordlist peq dramatisPersonae
+                  | ACTOR COMMA wordlist peq;
+                  
+lines: line lines | line;
+line: ACTOR COLON statements | enterStmt | exitStmt ;
+statements : statement statements | statement ;
+statement : IO pe | assignment pe;
+
+operationalstatement: 
+			  compoundstatement adjList noun andOrArticle continuednoun
+            | compoundstatement adjList noun AND ARTICLE compoundstatement
+            | OPERATIONS gravityOfStatement referential AND referential
+            | compoundstatement adjList noun
+            | compoundstatement adjList referential
+            | compoundstatement NOTHING;
+compoundstatement: 
+			 MULTIPLIER gravityOfStatement ARTICLE
+            | MULTIPLIER ARTICLE
+            | AS adjList AS compoundstatement
+            | AS adjList AS ARTICLE compoundstatement
+			| ARTICLE OPERATIONS gravityOfStatement compoundstatement
+            | ARTICLE OPERATIONS gravityOfStatement
+            | OPERATIONS gravityOfStatement ARTICLE compoundstatement
+            | OPERATIONS ARTICLE compoundstatement
+            | adjList noun AND ARTICLE
+            | adjList noun AND ARTICLE compoundstatement
+            | referential AND
+            | conjoin ARTICLE
+            | conjoin OF
+            | conjoin OF ARTICLE;
+conjoin: BOTH | EITHER | THEOPPOSITE;
+andOrArticle: AND | ARTICLE | OR;
+gravityOfStatement: OF | BETWEEN; 
+continuednoun: 
+			ARTICLE adjList noun 
+            | ARTICLE adjList noun continuednoun 
+            | AND continuednoun 
+            | ARTICLE adjList noun continuednoun
+            | NOTHING
+            | OF
+            | operationalstatement;
+referential: YOURSELF | MYSELF | THYSELF | ACTOR ;
+multiplierstatement: MULTIPLIER ARTICLE adjList noun;
+
+conjoinStatement: conjoin ARTICLE adjList noun AND ARTICLE adjList noun
+            | conjoin ARTICLE adjList noun AND adjList NOTHING
+            | conjoin ARTICLE adjList noun OR ARTICLE adjList noun
+            | conjoin OF ARTICLE adjList noun
+            | conjoin OF NOTHING
+            | conjoin ARTICLE adjList noun OR NOTHING;
+
+moralstatement: adjList AS ARTICLE OPERATIONS OF ARTICLE adjList noun AND ARTICLE adjList noun
+			| adjList AS ARTICLE OPERATIONS OF referential AND referential; 
+
+assignment :  YOU ARE ARTICLE adjList noun 
+           |  YOU ARE ARTICLE operationalstatement
+           |  YOU ARE multiplierstatement
+           |  YOU ARE conjoinStatement
+           |  YOU ARE AS moralstatement
+           |  YOU ARE POSSESSIVE adjList noun 
+           |  YOU ARE AS adj AS ARTICLE adjList noun
+           |  YOU ARE AS adj AS MYSELF
+           |  YOU ARE AS adj AS ACTOR
+           |  YOU ARE AS adj AS YOURSELF
+           |  YOU ARE MYSELF
+           |  YOU ARE YOURSELF
+           |  YOU ARE ACTOR
+           |  YOU ARE NOTHING
+           |  YOU adjList noun
+           |  I AM ARTICLE adjList noun
+           |  I AM POSSESSIVE adjList noun;
+
+
+noun : POS_NOUN | NEG_NOUN;
+adj : POS_ADJ | NEG_ADJ;
+adjList : adj adjList | ;
+
+enterStmt : LBRACKET ENTER ACTOR RBRACKET | LBRACKET ENTER actorlist RBRACKET;
+exitStmt : LBRACKET EXIT ACTOR RBRACKET
+         | LBRACKET EXEUNT actorlist RBRACKET
+         | LBRACKET EXEUNT OMNES RBRACKET
+         | LBRACKET EXEUNT RBRACKET ;
+actorlist : ACTOR COMMA actorlist | ACTOR AND ACTOR;
+
+wordlist : anyword wordlist | anyword ;
+anyword : ACTOR | IO | ANYWORD | ENTER | EXIT | EXEUNT | OMNES | AND | POS_NOUN
+        | NEG_NOUN | POS_ADJ | NEG_ADJ | ARTICLE;

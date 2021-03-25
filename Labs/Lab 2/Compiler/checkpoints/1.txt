@@ -1,0 +1,52 @@
+public Token next()
+        {
+            //Console.WriteLine("input length = " + this.input.Length);
+            int lineNum = 0;
+            var clonePut = this.input.Split('\n');
+            if ((this.idx > this.input.Length) || (this.idx < 0))
+            {
+                this.tokenList.Add(new Token("$", "", lineNum + 1));
+                if (this.tokenList.FindIndex(Token => Token.Symbol == "$") >= 0)
+                {
+                    Console.WriteLine("Popping tokens" + tokenList[0]);
+                    Token temp = tokenList[0];
+                    this.tokenList.RemoveAt(0);
+                    return temp;
+                }
+            }
+            else
+            {
+                while (this.idx <= this.input.Length)
+                {
+                    foreach (Terminal term in this.terminals)
+                    {
+                        string tokSym = "";
+                        string tokLex = "";
+                        Boolean tokExists = false;
+                        int tokId = this.idx;
+                        int matchLength = 0;
+
+
+                        Match m = term.rex.Match(clonePut[lineNum]);
+                        matchLength = m.Length;
+                        tokLex = m.Value;
+                        tokSym = term.sym;
+                        tokExists = m.Success;
+
+                        if (term.sym == "WHITESPACE" || term.sym == "COMMENT")
+                        {
+                            return next();
+                        }
+                        if (tokExists == true)
+                        {
+                            input = input.Remove(0, matchLength);
+                            this.idx = this.idx + matchLength;
+                            this.tokenList.Add(new Token(tokSym, tokLex, lineNum+1));
+                        }
+                    }
+                    return new Token("$", "", -4);
+                }
+                Console.WriteLine("Failed");
+                return new Token("$", "", -3);
+            }
+        }

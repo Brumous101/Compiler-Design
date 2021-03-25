@@ -1,0 +1,2086 @@
+[
+"4+2",6.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "2"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"4+2*3",10.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"4* 2+3",11.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "3"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"4 + (2 * 3)",10.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"4 * (   2 + 3   )",20.0,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "+"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "*"
+    }
+} ,
+"(4+2)*3",18.0,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "+"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "3"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "*"
+    }
+} ,
+"(4*2)+3",11.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "3"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"4 - 2",2.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "2"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"4 - 2 * 3",-2.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"4*2 -3",5.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "3"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"4-(2*3)",-2.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"4*( 2-3)",-4.0,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "*"
+    }
+} ,
+"( 4-2)*3",6.0,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "-"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "3"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "*"
+    }
+} ,
+"(4 * 2)-3",5.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "3"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"4+2 - 3+4",7.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "ADDOP",
+                    "children": [
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "4"
+                            }
+                        },
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "2"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "ADDOP",
+                        "lexeme": "+"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "-"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"4/2",2.0,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "2"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "/"
+    }
+} ,
+"4*2/3*4/5",2.1333333333333333,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "MULOP",
+                    "children": [
+                        {
+                            "sym": "MULOP",
+                            "children": [
+                                {
+                                    "sym": "NUM",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "NUM",
+                                        "lexeme": "4"
+                                    }
+                                },
+                                {
+                                    "sym": "NUM",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "NUM",
+                                        "lexeme": "2"
+                                    }
+                                }
+                            ],
+                            "token": {
+                                "sym": "MULOP",
+                                "lexeme": "*"
+                            }
+                        },
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "3"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "MULOP",
+                        "lexeme": "/"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "5"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "/"
+    }
+} ,
+"4**3**2",262144.0,
+{
+    "sym": "POWOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "POWOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "POWOP",
+                "lexeme": "**"
+            }
+        }
+    ],
+    "token": {
+        "sym": "POWOP",
+        "lexeme": "**"
+    }
+} ,
+"2*3 ** 4",162.0,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "2"
+            }
+        },
+        {
+            "sym": "POWOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "POWOP",
+                "lexeme": "**"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "*"
+    }
+} ,
+"2 ** 3*4",32.0,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "POWOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "POWOP",
+                "lexeme": "**"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "*"
+    }
+} ,
+"2**3*4+5",37.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "POWOP",
+                    "children": [
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "2"
+                            }
+                        },
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "3"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "POWOP",
+                        "lexeme": "**"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "5"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"2+3*4**5",3074.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "2"
+            }
+        },
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                },
+                {
+                    "sym": "POWOP",
+                    "children": [
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "4"
+                            }
+                        },
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "5"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "POWOP",
+                        "lexeme": "**"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"-2",-2.0,
+{
+    "sym": "NEGATE",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "2"
+            }
+        }
+    ],
+    "token": {
+        "sym": "NEGATE",
+        "lexeme": "-"
+    }
+} ,
+"- 2",-2.0,
+{
+    "sym": "NEGATE",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "2"
+            }
+        }
+    ],
+    "token": {
+        "sym": "NEGATE",
+        "lexeme": "-"
+    }
+} ,
+"  - 2",-2.0,
+{
+    "sym": "NEGATE",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "2"
+            }
+        }
+    ],
+    "token": {
+        "sym": "NEGATE",
+        "lexeme": "-"
+    }
+} ,
+"4+-2",2.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"4 + -2",2.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"4 + - 2",2.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"4 - - 2",6.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"4 - 2",2.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "2"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"-2+3",1.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "3"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"4--2",6.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"-2-3--4",-1.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "NEGATE",
+                    "children": [
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "2"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "NEGATE",
+                        "lexeme": "-"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "-"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"-4**2",-16.0,
+{
+    "sym": "NEGATE",
+    "children": [
+        {
+            "sym": "POWOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "POWOP",
+                "lexeme": "**"
+            }
+        }
+    ],
+    "token": {
+        "sym": "NEGATE",
+        "lexeme": "-"
+    }
+} ,
+"4**-2",0.0625,
+{
+    "sym": "POWOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "POWOP",
+        "lexeme": "**"
+    }
+} ,
+"-4**-2",-0.0625,
+{
+    "sym": "NEGATE",
+    "children": [
+        {
+            "sym": "POWOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                },
+                {
+                    "sym": "NEGATE",
+                    "children": [
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "2"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "NEGATE",
+                        "lexeme": "-"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "POWOP",
+                "lexeme": "**"
+            }
+        }
+    ],
+    "token": {
+        "sym": "NEGATE",
+        "lexeme": "-"
+    }
+} ,
+"-4*2",-8.0,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "2"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "*"
+    }
+} ,
+"-4*-2",8.0,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "*"
+    }
+} ,
+"3/-4",-0.75,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "3"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "/"
+    }
+} ,
+"3*-4/-2",6.0,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                },
+                {
+                    "sym": "NEGATE",
+                    "children": [
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "4"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "NEGATE",
+                        "lexeme": "-"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "/"
+    }
+} ,
+"---------------43",-43.0,
+{
+    "sym": "NEGATE",
+    "children": [
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NEGATE",
+                    "children": [
+                        {
+                            "sym": "NEGATE",
+                            "children": [
+                                {
+                                    "sym": "NEGATE",
+                                    "children": [
+                                        {
+                                            "sym": "NEGATE",
+                                            "children": [
+                                                {
+                                                    "sym": "NEGATE",
+                                                    "children": [
+                                                        {
+                                                            "sym": "NEGATE",
+                                                            "children": [
+                                                                {
+                                                                    "sym": "NEGATE",
+                                                                    "children": [
+                                                                        {
+                                                                            "sym": "NEGATE",
+                                                                            "children": [
+                                                                                {
+                                                                                    "sym": "NEGATE",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "sym": "NEGATE",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "sym": "NEGATE",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "sym": "NEGATE",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "sym": "NEGATE",
+                                                                                                                    "children": [
+                                                                                                                        {
+                                                                                                                            "sym": "NUM",
+                                                                                                                            "children": [],
+                                                                                                                            "token": {
+                                                                                                                                "sym": "NUM",
+                                                                                                                                "lexeme": "43"
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    ],
+                                                                                                                    "token": {
+                                                                                                                        "sym": "NEGATE",
+                                                                                                                        "lexeme": "-"
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            ],
+                                                                                                            "token": {
+                                                                                                                "sym": "NEGATE",
+                                                                                                                "lexeme": "-"
+                                                                                                            }
+                                                                                                        }
+                                                                                                    ],
+                                                                                                    "token": {
+                                                                                                        "sym": "NEGATE",
+                                                                                                        "lexeme": "-"
+                                                                                                    }
+                                                                                                }
+                                                                                            ],
+                                                                                            "token": {
+                                                                                                "sym": "NEGATE",
+                                                                                                "lexeme": "-"
+                                                                                            }
+                                                                                        }
+                                                                                    ],
+                                                                                    "token": {
+                                                                                        "sym": "NEGATE",
+                                                                                        "lexeme": "-"
+                                                                                    }
+                                                                                }
+                                                                            ],
+                                                                            "token": {
+                                                                                "sym": "NEGATE",
+                                                                                "lexeme": "-"
+                                                                            }
+                                                                        }
+                                                                    ],
+                                                                    "token": {
+                                                                        "sym": "NEGATE",
+                                                                        "lexeme": "-"
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "token": {
+                                                                "sym": "NEGATE",
+                                                                "lexeme": "-"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "token": {
+                                                        "sym": "NEGATE",
+                                                        "lexeme": "-"
+                                                    }
+                                                }
+                                            ],
+                                            "token": {
+                                                "sym": "NEGATE",
+                                                "lexeme": "-"
+                                            }
+                                        }
+                                    ],
+                                    "token": {
+                                        "sym": "NEGATE",
+                                        "lexeme": "-"
+                                    }
+                                }
+                            ],
+                            "token": {
+                                "sym": "NEGATE",
+                                "lexeme": "-"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "NEGATE",
+                        "lexeme": "-"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "NEGATE",
+        "lexeme": "-"
+    }
+} ,
+"(4+2*(3 ** 4 +(5+(7))))",190.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                },
+                {
+                    "sym": "ADDOP",
+                    "children": [
+                        {
+                            "sym": "POWOP",
+                            "children": [
+                                {
+                                    "sym": "NUM",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "NUM",
+                                        "lexeme": "3"
+                                    }
+                                },
+                                {
+                                    "sym": "NUM",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "NUM",
+                                        "lexeme": "4"
+                                    }
+                                }
+                            ],
+                            "token": {
+                                "sym": "POWOP",
+                                "lexeme": "**"
+                            }
+                        },
+                        {
+                            "sym": "ADDOP",
+                            "children": [
+                                {
+                                    "sym": "NUM",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "NUM",
+                                        "lexeme": "5"
+                                    }
+                                },
+                                {
+                                    "sym": "NUM",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "NUM",
+                                        "lexeme": "7"
+                                    }
+                                }
+                            ],
+                            "token": {
+                                "sym": "ADDOP",
+                                "lexeme": "+"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "ADDOP",
+                        "lexeme": "+"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"(-2-4)",-6.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"(4+2)-3",3.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "+"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "3"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"4--(2+3)",9.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "ADDOP",
+                    "children": [
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "2"
+                            }
+                        },
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "3"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "ADDOP",
+                        "lexeme": "+"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"4+-(2+3)",-1.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "ADDOP",
+                    "children": [
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "2"
+                            }
+                        },
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "3"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "ADDOP",
+                        "lexeme": "+"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"4+-(-2)",6.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NEGATE",
+                    "children": [
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "2"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "NEGATE",
+                        "lexeme": "-"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} 
+]

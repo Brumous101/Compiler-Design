@@ -1,0 +1,4 @@
+ID : [A-Za-z]+
+NUM : \d+
+COMMENT : //[^\n]*
+WHITESPACE: \s+

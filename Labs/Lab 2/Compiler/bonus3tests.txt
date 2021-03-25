@@ -1,0 +1,719 @@
+[
+"max(1)",1.0,
+{
+    "sym": "func-call",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "max"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "1"
+            }
+        }
+    ]
+} ,
+"max(1+2,3+4)",7.0,
+{
+    "sym": "func-call",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "max"
+            }
+        },
+        {
+            "sym": "COMMA",
+            "children": [
+                {
+                    "sym": "ADDOP",
+                    "children": [
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "1"
+                            }
+                        },
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "2"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "ADDOP",
+                        "lexeme": "+"
+                    }
+                },
+                {
+                    "sym": "ADDOP",
+                    "children": [
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "3"
+                            }
+                        },
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "4"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "ADDOP",
+                        "lexeme": "+"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "COMMA",
+                "lexeme": ","
+            }
+        }
+    ]
+} ,
+"max(1,2,4,5,67,5,2,32,6,4,5,2,3,21,1,5*3)",67.0,
+{
+    "sym": "func-call",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "max"
+            }
+        },
+        {
+            "sym": "COMMA",
+            "children": [
+                {
+                    "sym": "COMMA",
+                    "children": [
+                        {
+                            "sym": "COMMA",
+                            "children": [
+                                {
+                                    "sym": "COMMA",
+                                    "children": [
+                                        {
+                                            "sym": "COMMA",
+                                            "children": [
+                                                {
+                                                    "sym": "COMMA",
+                                                    "children": [
+                                                        {
+                                                            "sym": "COMMA",
+                                                            "children": [
+                                                                {
+                                                                    "sym": "COMMA",
+                                                                    "children": [
+                                                                        {
+                                                                            "sym": "COMMA",
+                                                                            "children": [
+                                                                                {
+                                                                                    "sym": "COMMA",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "sym": "COMMA",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "sym": "COMMA",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "sym": "COMMA",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "sym": "COMMA",
+                                                                                                                    "children": [
+                                                                                                                        {
+                                                                                                                            "sym": "COMMA",
+                                                                                                                            "children": [
+                                                                                                                                {
+                                                                                                                                    "sym": "NUM",
+                                                                                                                                    "children": [],
+                                                                                                                                    "token": {
+                                                                                                                                        "sym": "NUM",
+                                                                                                                                        "lexeme": "1"
+                                                                                                                                    }
+                                                                                                                                },
+                                                                                                                                {
+                                                                                                                                    "sym": "NUM",
+                                                                                                                                    "children": [],
+                                                                                                                                    "token": {
+                                                                                                                                        "sym": "NUM",
+                                                                                                                                        "lexeme": "2"
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            ],
+                                                                                                                            "token": {
+                                                                                                                                "sym": "COMMA",
+                                                                                                                                "lexeme": ","
+                                                                                                                            }
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "sym": "NUM",
+                                                                                                                            "children": [],
+                                                                                                                            "token": {
+                                                                                                                                "sym": "NUM",
+                                                                                                                                "lexeme": "4"
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    ],
+                                                                                                                    "token": {
+                                                                                                                        "sym": "COMMA",
+                                                                                                                        "lexeme": ","
+                                                                                                                    }
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "sym": "NUM",
+                                                                                                                    "children": [],
+                                                                                                                    "token": {
+                                                                                                                        "sym": "NUM",
+                                                                                                                        "lexeme": "5"
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            ],
+                                                                                                            "token": {
+                                                                                                                "sym": "COMMA",
+                                                                                                                "lexeme": ","
+                                                                                                            }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "sym": "NUM",
+                                                                                                            "children": [],
+                                                                                                            "token": {
+                                                                                                                "sym": "NUM",
+                                                                                                                "lexeme": "67"
+                                                                                                            }
+                                                                                                        }
+                                                                                                    ],
+                                                                                                    "token": {
+                                                                                                        "sym": "COMMA",
+                                                                                                        "lexeme": ","
+                                                                                                    }
+                                                                                                },
+                                                                                                {
+                                                                                                    "sym": "NUM",
+                                                                                                    "children": [],
+                                                                                                    "token": {
+                                                                                                        "sym": "NUM",
+                                                                                                        "lexeme": "5"
+                                                                                                    }
+                                                                                                }
+                                                                                            ],
+                                                                                            "token": {
+                                                                                                "sym": "COMMA",
+                                                                                                "lexeme": ","
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "sym": "NUM",
+                                                                                            "children": [],
+                                                                                            "token": {
+                                                                                                "sym": "NUM",
+                                                                                                "lexeme": "2"
+                                                                                            }
+                                                                                        }
+                                                                                    ],
+                                                                                    "token": {
+                                                                                        "sym": "COMMA",
+                                                                                        "lexeme": ","
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "sym": "NUM",
+                                                                                    "children": [],
+                                                                                    "token": {
+                                                                                        "sym": "NUM",
+                                                                                        "lexeme": "32"
+                                                                                    }
+                                                                                }
+                                                                            ],
+                                                                            "token": {
+                                                                                "sym": "COMMA",
+                                                                                "lexeme": ","
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "sym": "NUM",
+                                                                            "children": [],
+                                                                            "token": {
+                                                                                "sym": "NUM",
+                                                                                "lexeme": "6"
+                                                                            }
+                                                                        }
+                                                                    ],
+                                                                    "token": {
+                                                                        "sym": "COMMA",
+                                                                        "lexeme": ","
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "sym": "NUM",
+                                                                    "children": [],
+                                                                    "token": {
+                                                                        "sym": "NUM",
+                                                                        "lexeme": "4"
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "token": {
+                                                                "sym": "COMMA",
+                                                                "lexeme": ","
+                                                            }
+                                                        },
+                                                        {
+                                                            "sym": "NUM",
+                                                            "children": [],
+                                                            "token": {
+                                                                "sym": "NUM",
+                                                                "lexeme": "5"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "token": {
+                                                        "sym": "COMMA",
+                                                        "lexeme": ","
+                                                    }
+                                                },
+                                                {
+                                                    "sym": "NUM",
+                                                    "children": [],
+                                                    "token": {
+                                                        "sym": "NUM",
+                                                        "lexeme": "2"
+                                                    }
+                                                }
+                                            ],
+                                            "token": {
+                                                "sym": "COMMA",
+                                                "lexeme": ","
+                                            }
+                                        },
+                                        {
+                                            "sym": "NUM",
+                                            "children": [],
+                                            "token": {
+                                                "sym": "NUM",
+                                                "lexeme": "3"
+                                            }
+                                        }
+                                    ],
+                                    "token": {
+                                        "sym": "COMMA",
+                                        "lexeme": ","
+                                    }
+                                },
+                                {
+                                    "sym": "NUM",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "NUM",
+                                        "lexeme": "21"
+                                    }
+                                }
+                            ],
+                            "token": {
+                                "sym": "COMMA",
+                                "lexeme": ","
+                            }
+                        },
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "1"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "COMMA",
+                        "lexeme": ","
+                    }
+                },
+                {
+                    "sym": "MULOP",
+                    "children": [
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "5"
+                            }
+                        },
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "3"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "MULOP",
+                        "lexeme": "*"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "COMMA",
+                "lexeme": ","
+            }
+        }
+    ]
+} ,
+"max(1,2,4,5,67,5,2,32,6,4,5,2,3,21,1,5*3*2*5)",150.0,
+{
+    "sym": "func-call",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "max"
+            }
+        },
+        {
+            "sym": "COMMA",
+            "children": [
+                {
+                    "sym": "COMMA",
+                    "children": [
+                        {
+                            "sym": "COMMA",
+                            "children": [
+                                {
+                                    "sym": "COMMA",
+                                    "children": [
+                                        {
+                                            "sym": "COMMA",
+                                            "children": [
+                                                {
+                                                    "sym": "COMMA",
+                                                    "children": [
+                                                        {
+                                                            "sym": "COMMA",
+                                                            "children": [
+                                                                {
+                                                                    "sym": "COMMA",
+                                                                    "children": [
+                                                                        {
+                                                                            "sym": "COMMA",
+                                                                            "children": [
+                                                                                {
+                                                                                    "sym": "COMMA",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "sym": "COMMA",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "sym": "COMMA",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "sym": "COMMA",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "sym": "COMMA",
+                                                                                                                    "children": [
+                                                                                                                        {
+                                                                                                                            "sym": "COMMA",
+                                                                                                                            "children": [
+                                                                                                                                {
+                                                                                                                                    "sym": "NUM",
+                                                                                                                                    "children": [],
+                                                                                                                                    "token": {
+                                                                                                                                        "sym": "NUM",
+                                                                                                                                        "lexeme": "1"
+                                                                                                                                    }
+                                                                                                                                },
+                                                                                                                                {
+                                                                                                                                    "sym": "NUM",
+                                                                                                                                    "children": [],
+                                                                                                                                    "token": {
+                                                                                                                                        "sym": "NUM",
+                                                                                                                                        "lexeme": "2"
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            ],
+                                                                                                                            "token": {
+                                                                                                                                "sym": "COMMA",
+                                                                                                                                "lexeme": ","
+                                                                                                                            }
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "sym": "NUM",
+                                                                                                                            "children": [],
+                                                                                                                            "token": {
+                                                                                                                                "sym": "NUM",
+                                                                                                                                "lexeme": "4"
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    ],
+                                                                                                                    "token": {
+                                                                                                                        "sym": "COMMA",
+                                                                                                                        "lexeme": ","
+                                                                                                                    }
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "sym": "NUM",
+                                                                                                                    "children": [],
+                                                                                                                    "token": {
+                                                                                                                        "sym": "NUM",
+                                                                                                                        "lexeme": "5"
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            ],
+                                                                                                            "token": {
+                                                                                                                "sym": "COMMA",
+                                                                                                                "lexeme": ","
+                                                                                                            }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "sym": "NUM",
+                                                                                                            "children": [],
+                                                                                                            "token": {
+                                                                                                                "sym": "NUM",
+                                                                                                                "lexeme": "67"
+                                                                                                            }
+                                                                                                        }
+                                                                                                    ],
+                                                                                                    "token": {
+                                                                                                        "sym": "COMMA",
+                                                                                                        "lexeme": ","
+                                                                                                    }
+                                                                                                },
+                                                                                                {
+                                                                                                    "sym": "NUM",
+                                                                                                    "children": [],
+                                                                                                    "token": {
+                                                                                                        "sym": "NUM",
+                                                                                                        "lexeme": "5"
+                                                                                                    }
+                                                                                                }
+                                                                                            ],
+                                                                                            "token": {
+                                                                                                "sym": "COMMA",
+                                                                                                "lexeme": ","
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "sym": "NUM",
+                                                                                            "children": [],
+                                                                                            "token": {
+                                                                                                "sym": "NUM",
+                                                                                                "lexeme": "2"
+                                                                                            }
+                                                                                        }
+                                                                                    ],
+                                                                                    "token": {
+                                                                                        "sym": "COMMA",
+                                                                                        "lexeme": ","
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "sym": "NUM",
+                                                                                    "children": [],
+                                                                                    "token": {
+                                                                                        "sym": "NUM",
+                                                                                        "lexeme": "32"
+                                                                                    }
+                                                                                }
+                                                                            ],
+                                                                            "token": {
+                                                                                "sym": "COMMA",
+                                                                                "lexeme": ","
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "sym": "NUM",
+                                                                            "children": [],
+                                                                            "token": {
+                                                                                "sym": "NUM",
+                                                                                "lexeme": "6"
+                                                                            }
+                                                                        }
+                                                                    ],
+                                                                    "token": {
+                                                                        "sym": "COMMA",
+                                                                        "lexeme": ","
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "sym": "NUM",
+                                                                    "children": [],
+                                                                    "token": {
+                                                                        "sym": "NUM",
+                                                                        "lexeme": "4"
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "token": {
+                                                                "sym": "COMMA",
+                                                                "lexeme": ","
+                                                            }
+                                                        },
+                                                        {
+                                                            "sym": "NUM",
+                                                            "children": [],
+                                                            "token": {
+                                                                "sym": "NUM",
+                                                                "lexeme": "5"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "token": {
+                                                        "sym": "COMMA",
+                                                        "lexeme": ","
+                                                    }
+                                                },
+                                                {
+                                                    "sym": "NUM",
+                                                    "children": [],
+                                                    "token": {
+                                                        "sym": "NUM",
+                                                        "lexeme": "2"
+                                                    }
+                                                }
+                                            ],
+                                            "token": {
+                                                "sym": "COMMA",
+                                                "lexeme": ","
+                                            }
+                                        },
+                                        {
+                                            "sym": "NUM",
+                                            "children": [],
+                                            "token": {
+                                                "sym": "NUM",
+                                                "lexeme": "3"
+                                            }
+                                        }
+                                    ],
+                                    "token": {
+                                        "sym": "COMMA",
+                                        "lexeme": ","
+                                    }
+                                },
+                                {
+                                    "sym": "NUM",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "NUM",
+                                        "lexeme": "21"
+                                    }
+                                }
+                            ],
+                            "token": {
+                                "sym": "COMMA",
+                                "lexeme": ","
+                            }
+                        },
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "1"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "COMMA",
+                        "lexeme": ","
+                    }
+                },
+                {
+                    "sym": "MULOP",
+                    "children": [
+                        {
+                            "sym": "MULOP",
+                            "children": [
+                                {
+                                    "sym": "MULOP",
+                                    "children": [
+                                        {
+                                            "sym": "NUM",
+                                            "children": [],
+                                            "token": {
+                                                "sym": "NUM",
+                                                "lexeme": "5"
+                                            }
+                                        },
+                                        {
+                                            "sym": "NUM",
+                                            "children": [],
+                                            "token": {
+                                                "sym": "NUM",
+                                                "lexeme": "3"
+                                            }
+                                        }
+                                    ],
+                                    "token": {
+                                        "sym": "MULOP",
+                                        "lexeme": "*"
+                                    }
+                                },
+                                {
+                                    "sym": "NUM",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "NUM",
+                                        "lexeme": "2"
+                                    }
+                                }
+                            ],
+                            "token": {
+                                "sym": "MULOP",
+                                "lexeme": "*"
+                            }
+                        },
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "5"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "MULOP",
+                        "lexeme": "*"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "COMMA",
+                "lexeme": ","
+            }
+        }
+    ]
+} 
+]

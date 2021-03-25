@@ -1,0 +1,11 @@
+IF : if
+ELSE : else
+ID : [A-Za-z_]\w*
+INT : -?\d+
+FLOAT: -?(\d+|\d+[.]\d*|[.]\d+)([Ee][-+]?\d+)?
+ADDOP : [-+]
+MULOP : [*/]
+EQUALITY : ==
+WHITESPACE : \s+
+COMMENT : /\*(.|\n)*?\*/
+STRING : "(\\"|[^"])*"

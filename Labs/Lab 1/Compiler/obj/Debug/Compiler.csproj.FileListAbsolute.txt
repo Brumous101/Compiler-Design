@@ -1,0 +1,7 @@
+C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab 1\Compiler\obj\Debug\Compiler.csprojAssemblyReference.cache
+C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab 1\Compiler\obj\Debug\Compiler.csproj.CoreCompileInputs.cache
+C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab 1\Compiler\bin\Debug\Compiler.exe.config
+C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab 1\Compiler\bin\Debug\Compiler.exe
+C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab 1\Compiler\bin\Debug\Compiler.pdb
+C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab 1\Compiler\obj\Debug\Compiler.exe
+C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab 1\Compiler\obj\Debug\Compiler.pdb

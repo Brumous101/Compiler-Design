@@ -1,0 +1,15 @@
+grammar g;
+
+PUNC : [.?!] ;
+COMMA : , ;
+ACTOR :  \b ( Romeo | Juliet | Tybalt | Benvolio | Othello ) \b ;
+WHITESPACE : \s -> skip;
+//the parser gives priority to earlier terminals over later ones.
+//you probably want this to be last.
+ANYWORD: [A-Za-z]+;
+
+start : title ;
+title : wordlist PUNC dramatisPersonae;
+wordlist : anyword wordlist | ACTOR | anyword;
+anyword : ANYWORD ;
+dramatisPersonae : ACTOR COMMA wordlist PUNC | ACTOR COMMA wordlist PUNC dramatisPersonae;

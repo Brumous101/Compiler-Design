@@ -1,0 +1,164 @@
+[
+"4 + unique()*5 + 3*unique()",15.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                },
+                {
+                    "sym": "MULOP",
+                    "children": [
+                        {
+                            "sym": "func-call",
+                            "children": [
+                                {
+                                    "sym": "ID",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "ID",
+                                        "lexeme": "unique"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "5"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "MULOP",
+                        "lexeme": "*"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "+"
+            }
+        },
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                },
+                {
+                    "sym": "func-call",
+                    "children": [
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "unique"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"2 * unique() + unique()*unique()",8.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                },
+                {
+                    "sym": "func-call",
+                    "children": [
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "unique"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        },
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "func-call",
+                    "children": [
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "unique"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "sym": "func-call",
+                    "children": [
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "unique"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} 
+]

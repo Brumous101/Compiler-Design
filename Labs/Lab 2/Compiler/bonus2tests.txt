@@ -1,0 +1,263 @@
+[
+"sin(3.14)",0.0015926529164868282,
+{
+    "sym": "func-call",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "sin"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "3.14"
+            }
+        }
+    ]
+} ,
+"sin(3+0.14)",0.0015926529164868282,
+{
+    "sym": "func-call",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "sin"
+            }
+        },
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "0.14"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "+"
+            }
+        }
+    ]
+} ,
+"cos(0.707)",0.7603139617444397,
+{
+    "sym": "func-call",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "cos"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "0.707"
+            }
+        }
+    ]
+} ,
+"sin(cos(sin(cos(sin(cos(sin(cos(1))))))))",0.7100998231945163,
+{
+    "sym": "func-call",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "sin"
+            }
+        },
+        {
+            "sym": "func-call",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "cos"
+                    }
+                },
+                {
+                    "sym": "func-call",
+                    "children": [
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "sin"
+                            }
+                        },
+                        {
+                            "sym": "func-call",
+                            "children": [
+                                {
+                                    "sym": "ID",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "ID",
+                                        "lexeme": "cos"
+                                    }
+                                },
+                                {
+                                    "sym": "func-call",
+                                    "children": [
+                                        {
+                                            "sym": "ID",
+                                            "children": [],
+                                            "token": {
+                                                "sym": "ID",
+                                                "lexeme": "sin"
+                                            }
+                                        },
+                                        {
+                                            "sym": "func-call",
+                                            "children": [
+                                                {
+                                                    "sym": "ID",
+                                                    "children": [],
+                                                    "token": {
+                                                        "sym": "ID",
+                                                        "lexeme": "cos"
+                                                    }
+                                                },
+                                                {
+                                                    "sym": "func-call",
+                                                    "children": [
+                                                        {
+                                                            "sym": "ID",
+                                                            "children": [],
+                                                            "token": {
+                                                                "sym": "ID",
+                                                                "lexeme": "sin"
+                                                            }
+                                                        },
+                                                        {
+                                                            "sym": "func-call",
+                                                            "children": [
+                                                                {
+                                                                    "sym": "ID",
+                                                                    "children": [],
+                                                                    "token": {
+                                                                        "sym": "ID",
+                                                                        "lexeme": "cos"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "sym": "NUM",
+                                                                    "children": [],
+                                                                    "token": {
+                                                                        "sym": "NUM",
+                                                                        "lexeme": "1"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+} ,
+"atan2( sin(0.12), cos(0.34) )",0.12630532896774418,
+{
+    "sym": "func-call",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "atan2"
+            }
+        },
+        {
+            "sym": "COMMA",
+            "children": [
+                {
+                    "sym": "func-call",
+                    "children": [
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "sin"
+                            }
+                        },
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "0.12"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "sym": "func-call",
+                    "children": [
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "cos"
+                            }
+                        },
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "0.34"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "token": {
+                "sym": "COMMA",
+                "lexeme": ","
+            }
+        }
+    ]
+} 
+]

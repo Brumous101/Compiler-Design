@@ -1,0 +1,43 @@
+grammar g;
+
+ACTOR :  \b ( Romeo | Juliet | Tybalt | Benvolio | Othello ) \b;
+PERIOD : [.];
+QUESTION : [?];
+EXCLAMATION : !;
+COMMA : , ;
+COLON : : ;
+RBR : [\]];
+ENTER: [[]Enter;
+EXIT: [[]Exit;
+EXEUNT: [[]Exeunt;
+OMNES: Omnes;
+
+IO:   \bspeak  \s+ your \s+ mind\b
+    | \bopen   \s+ your \s+ mind\b
+    | \bopen   \s+ your \s+ heart\b
+    | \blisten \s+ to   \s+ your \s+ heart\b ;
+WHITESPACE : \s+ -> skip;
+ANYWORD : [A-Za-z]+ ;
+
+start : title dramatisPersonae lines;
+
+title : wordlist peq;
+peq : PERIOD | QUESTION | EXCLAMATION;
+pe : PERIOD | EXCLAMATION;
+
+dramatisPersonae : ACTOR COMMA wordlist peq dramatisPersonae
+                  | ACTOR COMMA wordlist peq;
+                  
+declarevariable : ENTER ACTOR RBR  | ENTER ACTOR anyword ACTOR RBR | ENTER ACTOR COMMA ACTOR anyword ACTOR RBR | ENTER ACTOR COMMA ACTOR COMMA ACTOR anyword ACTOR RBR | ENTER ACTOR COMMA ACTOR COMMA ACTOR COMMA ACTOR anyword ACTOR RBR | ENTER ACTOR COMMA ACTOR COMMA ACTOR COMMA ACTOR COMMA ACTOR anyword ACTOR RBR;
+destroyvariable : EXIT ACTOR RBR;
+destroymultiplevariable : EXEUNT RBR | EXEUNT OMNES RBR | EXEUNT ACTOR anyword ACTOR RBR | EXEUNT ACTOR COMMA ACTOR anyword ACTOR RBR | EXEUNT ACTOR COMMA ACTOR COMMA ACTOR anyword ACTOR RBR | EXEUNT ACTOR COMMA ACTOR COMMA ACTOR COMMA ACTOR anyword ACTOR RBR | EXEUNT ACTOR COMMA ACTOR COMMA ACTOR COMMA ACTOR COMMA ACTOR anyword ACTOR RBR ;
+
+lines: line lines | line | declarevariable | destroyvariable | declarevariable lines
+| destroyvariable lines | destroymultiplevariable lines | destroymultiplevariable;
+line: ACTOR COLON statements ;
+
+statements : statement statements | statement ;
+statement : IO pe;
+
+wordlist : anyword wordlist | anyword ;
+anyword : ACTOR | IO | ANYWORD ;

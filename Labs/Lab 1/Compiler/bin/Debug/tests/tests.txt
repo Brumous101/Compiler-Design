@@ -1,0 +1,11 @@
+g1.txt g1-input1.txt g1-input1-results.txt
+g1.txt g1-input2.txt g1-input2-results.txt
+g1.txt g1-input3.txt g1-input3-results.txt
+g1.txt g1-input4.txt g1-input4-results.txt
+g1.txt g1-input5.txt g1-input5-results.txt
+g1.txt g1-input6.txt g1-input6-results.txt
+g2.txt g2-input1.txt g2-input1-results.txt
+g2.txt g2-input2.txt g2-input2-results.txt
+g3.txt g3-input1.txt g3-input1-results.txt
+g4.txt g4-input1.txt g4-input1-results.txt
+g4.txt g4-input2.txt g4-input2-results.txt

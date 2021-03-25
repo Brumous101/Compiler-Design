@@ -1,0 +1,5 @@
+NUM : \d+
+POWOP : [**]
+NEGATE : [-]
+MULOP : [*/]
+ADDOP : [-+]

@@ -1,0 +1,952 @@
+[
+"~2",-3,
+{
+    "sym": "BITNOT",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "2"
+            }
+        }
+    ],
+    "token": {
+        "sym": "BITNOT",
+        "lexeme": "~"
+    }
+} ,
+"4+~2",1.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "BITNOT",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "BITNOT",
+                "lexeme": "~"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"4 + ~ 2",1.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "BITNOT",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "BITNOT",
+                "lexeme": "~"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"~4+2",-3.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "BITNOT",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "BITNOT",
+                "lexeme": "~"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "2"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"~4*2",-10.0,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "BITNOT",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "BITNOT",
+                "lexeme": "~"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "2"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "*"
+    }
+} ,
+"2*~4",-10.0,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "2"
+            }
+        },
+        {
+            "sym": "BITNOT",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "BITNOT",
+                "lexeme": "~"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "*"
+    }
+} ,
+"~4**2",-17,
+{
+    "sym": "BITNOT",
+    "children": [
+        {
+            "sym": "POWOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "POWOP",
+                "lexeme": "**"
+            }
+        }
+    ],
+    "token": {
+        "sym": "BITNOT",
+        "lexeme": "~"
+    }
+} ,
+"4**2+-3",13.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "POWOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "POWOP",
+                "lexeme": "**"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"4**-2+3",3.0625,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "POWOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                },
+                {
+                    "sym": "NEGATE",
+                    "children": [
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "2"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "NEGATE",
+                        "lexeme": "-"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "POWOP",
+                "lexeme": "**"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "3"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"4**2+~3",12.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "POWOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "POWOP",
+                "lexeme": "**"
+            }
+        },
+        {
+            "sym": "BITNOT",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "BITNOT",
+                "lexeme": "~"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"4**~2+3",3.015625,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "POWOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                },
+                {
+                    "sym": "BITNOT",
+                    "children": [
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "2"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "BITNOT",
+                        "lexeme": "~"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "POWOP",
+                "lexeme": "**"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "3"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"~~3",3,
+{
+    "sym": "BITNOT",
+    "children": [
+        {
+            "sym": "BITNOT",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "BITNOT",
+                "lexeme": "~"
+            }
+        }
+    ],
+    "token": {
+        "sym": "BITNOT",
+        "lexeme": "~"
+    }
+} ,
+"~~~~~~~~~~~~~~42",42,
+{
+    "sym": "BITNOT",
+    "children": [
+        {
+            "sym": "BITNOT",
+            "children": [
+                {
+                    "sym": "BITNOT",
+                    "children": [
+                        {
+                            "sym": "BITNOT",
+                            "children": [
+                                {
+                                    "sym": "BITNOT",
+                                    "children": [
+                                        {
+                                            "sym": "BITNOT",
+                                            "children": [
+                                                {
+                                                    "sym": "BITNOT",
+                                                    "children": [
+                                                        {
+                                                            "sym": "BITNOT",
+                                                            "children": [
+                                                                {
+                                                                    "sym": "BITNOT",
+                                                                    "children": [
+                                                                        {
+                                                                            "sym": "BITNOT",
+                                                                            "children": [
+                                                                                {
+                                                                                    "sym": "BITNOT",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "sym": "BITNOT",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "sym": "BITNOT",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "sym": "BITNOT",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "sym": "NUM",
+                                                                                                                    "children": [],
+                                                                                                                    "token": {
+                                                                                                                        "sym": "NUM",
+                                                                                                                        "lexeme": "42"
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            ],
+                                                                                                            "token": {
+                                                                                                                "sym": "BITNOT",
+                                                                                                                "lexeme": "~"
+                                                                                                            }
+                                                                                                        }
+                                                                                                    ],
+                                                                                                    "token": {
+                                                                                                        "sym": "BITNOT",
+                                                                                                        "lexeme": "~"
+                                                                                                    }
+                                                                                                }
+                                                                                            ],
+                                                                                            "token": {
+                                                                                                "sym": "BITNOT",
+                                                                                                "lexeme": "~"
+                                                                                            }
+                                                                                        }
+                                                                                    ],
+                                                                                    "token": {
+                                                                                        "sym": "BITNOT",
+                                                                                        "lexeme": "~"
+                                                                                    }
+                                                                                }
+                                                                            ],
+                                                                            "token": {
+                                                                                "sym": "BITNOT",
+                                                                                "lexeme": "~"
+                                                                            }
+                                                                        }
+                                                                    ],
+                                                                    "token": {
+                                                                        "sym": "BITNOT",
+                                                                        "lexeme": "~"
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "token": {
+                                                                "sym": "BITNOT",
+                                                                "lexeme": "~"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "token": {
+                                                        "sym": "BITNOT",
+                                                        "lexeme": "~"
+                                                    }
+                                                }
+                                            ],
+                                            "token": {
+                                                "sym": "BITNOT",
+                                                "lexeme": "~"
+                                            }
+                                        }
+                                    ],
+                                    "token": {
+                                        "sym": "BITNOT",
+                                        "lexeme": "~"
+                                    }
+                                }
+                            ],
+                            "token": {
+                                "sym": "BITNOT",
+                                "lexeme": "~"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "BITNOT",
+                        "lexeme": "~"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "BITNOT",
+                "lexeme": "~"
+            }
+        }
+    ],
+    "token": {
+        "sym": "BITNOT",
+        "lexeme": "~"
+    }
+} ,
+"~(2)",-3,
+{
+    "sym": "BITNOT",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "2"
+            }
+        }
+    ],
+    "token": {
+        "sym": "BITNOT",
+        "lexeme": "~"
+    }
+} ,
+"4+(~2)",1.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "BITNOT",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "BITNOT",
+                "lexeme": "~"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"4+~(2)",1.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "4"
+            }
+        },
+        {
+            "sym": "BITNOT",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "BITNOT",
+                "lexeme": "~"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"~(4+2)",-7,
+{
+    "sym": "BITNOT",
+    "children": [
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "+"
+            }
+        }
+    ],
+    "token": {
+        "sym": "BITNOT",
+        "lexeme": "~"
+    }
+} ,
+"(~4)*2",-10.0,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "BITNOT",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "BITNOT",
+                "lexeme": "~"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "2"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "*"
+    }
+} ,
+"2*(~4)",-10.0,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "2"
+            }
+        },
+        {
+            "sym": "BITNOT",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "BITNOT",
+                "lexeme": "~"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "*"
+    }
+} ,
+"(~4)**2",25.0,
+{
+    "sym": "POWOP",
+    "children": [
+        {
+            "sym": "BITNOT",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "BITNOT",
+                "lexeme": "~"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "2"
+            }
+        }
+    ],
+    "token": {
+        "sym": "POWOP",
+        "lexeme": "**"
+    }
+} ,
+"~4**(2)",-17,
+{
+    "sym": "BITNOT",
+    "children": [
+        {
+            "sym": "POWOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "POWOP",
+                "lexeme": "**"
+            }
+        }
+    ],
+    "token": {
+        "sym": "BITNOT",
+        "lexeme": "~"
+    }
+} ,
+"(~4**2)",-17,
+{
+    "sym": "BITNOT",
+    "children": [
+        {
+            "sym": "POWOP",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "4"
+                    }
+                },
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "2"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "POWOP",
+                "lexeme": "**"
+            }
+        }
+    ],
+    "token": {
+        "sym": "BITNOT",
+        "lexeme": "~"
+    }
+} ,
+"~(-3)",2,
+{
+    "sym": "BITNOT",
+    "children": [
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "BITNOT",
+        "lexeme": "~"
+    }
+} ,
+"-(~3)",4,
+{
+    "sym": "NEGATE",
+    "children": [
+        {
+            "sym": "BITNOT",
+            "children": [
+                {
+                    "sym": "NUM",
+                    "children": [],
+                    "token": {
+                        "sym": "NUM",
+                        "lexeme": "3"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "BITNOT",
+                "lexeme": "~"
+            }
+        }
+    ],
+    "token": {
+        "sym": "NEGATE",
+        "lexeme": "-"
+    }
+} 
+]

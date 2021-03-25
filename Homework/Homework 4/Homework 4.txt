@@ -1,0 +1,59 @@
+grammar g;
+
+ACTOR :  \b ( Romeo | Juliet | Tybalt | Benvolio | Othello ) \b;
+PERIOD : [.];
+QUESTION : [?];
+EXCLAMATION : !;
+COMMA : , ;
+COLON : : ;
+IO:   \bspeak  \s+ your \s+ mind\b
+    | \bopen   \s+ your \s+ mind\b
+    | \bopen   \s+ your \s+ heart\b
+    | \blisten \s+ to   \s+ your \s+ heart\b ;
+ASSIGN: \byou  \s+ are \s+ a\b
+      | \bthou   \s+ art \s+ a\b;
+LBRACKET : [[] ;
+RBRACKET : [\]] ;
+ENTER : \benter\b;
+EXIT : \bexit\b;
+EXEUNT : \bexeunt\b;
+OMNES : \bomnes\b;
+AND : \band\b;
+
+POS_NOUN : \b ( queen | peach | mountaineer | handbag | plum | summer's \s+ day ) \b;
+NEG_NOUN : \b ( toad | barbermonger | fustilarian ) \b;
+POS_ADJ : \b ( sunny | wonderful | amazing | cunning | lovely | fine | gentle | handsome | lovely | peaceful ) \b;
+NEG_ADJ : \b ( featureless | vile | ugly ) \b;
+
+WHITESPACE : \s+ -> skip;
+ANYWORD : [A-Za-z]+ ;
+
+start : title dramatisPersonae lines;
+
+title : wordlist peq;
+peq : PERIOD | QUESTION | EXCLAMATION;
+pe : PERIOD | EXCLAMATION;
+
+dramatisPersonae : ACTOR COMMA wordlist peq dramatisPersonae
+                  | ACTOR COMMA wordlist peq;
+                  
+lines: line lines | line;
+line: ACTOR COLON statements | enterStmt | exitStmt ;
+statements : statement statements | statement ;
+statement : IO pe | tell pe;
+
+enterStmt : LBRACKET ENTER ACTOR RBRACKET | LBRACKET ENTER actorlist RBRACKET;
+exitStmt : LBRACKET EXIT ACTOR RBRACKET
+         | LBRACKET EXEUNT actorlist RBRACKET
+         | LBRACKET EXEUNT OMNES RBRACKET
+         | LBRACKET EXEUNT RBRACKET ;
+actorlist : ACTOR COMMA actorlist | ACTOR AND ACTOR;
+
+wordlist : anyword wordlist | anyword ;
+anyword : ACTOR | IO | ANYWORD | ENTER | EXIT | EXEUNT | OMNES | AND | POS_NOUN
+        | NEG_NOUN | POS_ADJ | NEG_ADJ;
+tell : ASSIGN attributes;
+attributes: attribute attributes | noun;
+attribute: adjective | noun;
+adjective: POS_ADJ | NEG_ADJ;
+noun: POS_NOUN | NEG_NOUN;

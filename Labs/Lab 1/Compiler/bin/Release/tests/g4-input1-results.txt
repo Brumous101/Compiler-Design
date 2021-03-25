@@ -1,0 +1,12 @@
+STRING
+1
+"This is string 1"
+STRING
+1
+"this is string 2"
+STRING
+1
+"this is string 3"
+$
+2
+

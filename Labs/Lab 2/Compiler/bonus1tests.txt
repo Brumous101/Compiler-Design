@@ -1,0 +1,1693 @@
+[
+"foo+1",124.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "1"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"foo-bar",-333,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        },
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "bar"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"foo/blammo",1.5769230769230769,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        },
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "blammo"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "/"
+    }
+} ,
+"blarg*(a+b-c+d)",8667,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "blarg"
+            }
+        },
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "ADDOP",
+                    "children": [
+                        {
+                            "sym": "ADDOP",
+                            "children": [
+                                {
+                                    "sym": "ID",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "ID",
+                                        "lexeme": "a"
+                                    }
+                                },
+                                {
+                                    "sym": "ID",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "ID",
+                                        "lexeme": "b"
+                                    }
+                                }
+                            ],
+                            "token": {
+                                "sym": "ADDOP",
+                                "lexeme": "+"
+                            }
+                        },
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "c"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "ADDOP",
+                        "lexeme": "-"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "d"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "+"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "*"
+    }
+} ,
+"b+-2**big_stuff",57.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "b"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "POWOP",
+                    "children": [
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "2"
+                            }
+                        },
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "big_stuff"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "POWOP",
+                        "lexeme": "**"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"foo + blammo",201,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        },
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "blammo"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"foo+ blammo *blarg",25161,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        },
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blarg"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"foo*blammo+blarg",9915,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "foo"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        },
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "blarg"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"foo+(blammo*blarg)",25161,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        },
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blarg"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"foo*(blammo+blarg)",49077,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        },
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blarg"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "+"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "*"
+    }
+} ,
+"(foo+blammo)*blarg",64521,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "foo"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "+"
+            }
+        },
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "blarg"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "*"
+    }
+} ,
+"(foo*blammo)+blarg",9915,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "foo"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        },
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "blarg"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"foo-blammo",45,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        },
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "blammo"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"foo-blammo*blarg",-24915,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        },
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blarg"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"foo*blammo-blarg",9273,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "foo"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        },
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "blarg"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"foo-(blammo*blarg)",-24915,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        },
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blarg"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"foo*(blammo-blarg)",-29889,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        },
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blarg"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "*"
+    }
+} ,
+"(foo-blammo)*blarg",14445,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "foo"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "-"
+            }
+        },
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "blarg"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "*"
+    }
+} ,
+"(foo*blammo)-blarg",9273,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "foo"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        },
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "blarg"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"foo+blammo-blarg+big_stuff",-117,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "ADDOP",
+                    "children": [
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "foo"
+                            }
+                        },
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "blammo"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "ADDOP",
+                        "lexeme": "+"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blarg"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "-"
+            }
+        },
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "big_stuff"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"foo/blammo",1.5769230769230769,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        },
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "blammo"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "/"
+    }
+} ,
+"foo*blammo/blarg*big_stuff/5",17.932710280373833,
+{
+    "sym": "MULOP",
+    "children": [
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "MULOP",
+                    "children": [
+                        {
+                            "sym": "MULOP",
+                            "children": [
+                                {
+                                    "sym": "ID",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "ID",
+                                        "lexeme": "foo"
+                                    }
+                                },
+                                {
+                                    "sym": "ID",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "ID",
+                                        "lexeme": "blammo"
+                                    }
+                                }
+                            ],
+                            "token": {
+                                "sym": "MULOP",
+                                "lexeme": "*"
+                            }
+                        },
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "blarg"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "MULOP",
+                        "lexeme": "/"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "big_stuff"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "5"
+            }
+        }
+    ],
+    "token": {
+        "sym": "MULOP",
+        "lexeme": "/"
+    }
+} ,
+"blammo-blarg*big_stuff",-885,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "blammo"
+            }
+        },
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blarg"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "big_stuff"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"blammo-blarg*big_stuff",-885,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "blammo"
+            }
+        },
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blarg"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "big_stuff"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"blammo*blarg+big_stuff",25041,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blarg"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        },
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "big_stuff"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"blammo*blarg-big_stuff+5",25040.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "MULOP",
+                    "children": [
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "blammo"
+                            }
+                        },
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "blarg"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "MULOP",
+                        "lexeme": "*"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "big_stuff"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "-"
+            }
+        },
+        {
+            "sym": "NUM",
+            "children": [],
+            "token": {
+                "sym": "NUM",
+                "lexeme": "5"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"blammo+blarg*big_stuff**5",78081.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "blammo"
+            }
+        },
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blarg"
+                    }
+                },
+                {
+                    "sym": "POWOP",
+                    "children": [
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "big_stuff"
+                            }
+                        },
+                        {
+                            "sym": "NUM",
+                            "children": [],
+                            "token": {
+                                "sym": "NUM",
+                                "lexeme": "5"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "POWOP",
+                        "lexeme": "**"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"-blammo",-78,
+{
+    "sym": "NEGATE",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "blammo"
+            }
+        }
+    ],
+    "token": {
+        "sym": "NEGATE",
+        "lexeme": "-"
+    }
+} ,
+"foo+-blammo",45,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"-blammo+blarg",243,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        },
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "blarg"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"foo--blammo",201,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"-blammo-blarg--big_stuff",-396,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "NEGATE",
+                    "children": [
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "blammo"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "NEGATE",
+                        "lexeme": "-"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blarg"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "-"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "big_stuff"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"(foo+blammo*(blarg**big_stuff+(5+(7))))",2579941617.0,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        },
+        {
+            "sym": "MULOP",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                },
+                {
+                    "sym": "ADDOP",
+                    "children": [
+                        {
+                            "sym": "POWOP",
+                            "children": [
+                                {
+                                    "sym": "ID",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "ID",
+                                        "lexeme": "blarg"
+                                    }
+                                },
+                                {
+                                    "sym": "ID",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "ID",
+                                        "lexeme": "big_stuff"
+                                    }
+                                }
+                            ],
+                            "token": {
+                                "sym": "POWOP",
+                                "lexeme": "**"
+                            }
+                        },
+                        {
+                            "sym": "ADDOP",
+                            "children": [
+                                {
+                                    "sym": "NUM",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "NUM",
+                                        "lexeme": "5"
+                                    }
+                                },
+                                {
+                                    "sym": "NUM",
+                                    "children": [],
+                                    "token": {
+                                        "sym": "NUM",
+                                        "lexeme": "7"
+                                    }
+                                }
+                            ],
+                            "token": {
+                                "sym": "ADDOP",
+                                "lexeme": "+"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "ADDOP",
+                        "lexeme": "+"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "MULOP",
+                "lexeme": "*"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"(-blammo-foo)",-201,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        },
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"(foo+blammo)-blarg",-120,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ADDOP",
+            "children": [
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "foo"
+                    }
+                },
+                {
+                    "sym": "ID",
+                    "children": [],
+                    "token": {
+                        "sym": "ID",
+                        "lexeme": "blammo"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "ADDOP",
+                "lexeme": "+"
+            }
+        },
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "blarg"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"foo--(blammo+blarg)",522,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "ADDOP",
+                    "children": [
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "blammo"
+                            }
+                        },
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "blarg"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "ADDOP",
+                        "lexeme": "+"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "-"
+    }
+} ,
+"foo+-(blammo+blarg)",-276,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "ADDOP",
+                    "children": [
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "blammo"
+                            }
+                        },
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "blarg"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "ADDOP",
+                        "lexeme": "+"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} ,
+"foo+-(-blammo)",201,
+{
+    "sym": "ADDOP",
+    "children": [
+        {
+            "sym": "ID",
+            "children": [],
+            "token": {
+                "sym": "ID",
+                "lexeme": "foo"
+            }
+        },
+        {
+            "sym": "NEGATE",
+            "children": [
+                {
+                    "sym": "NEGATE",
+                    "children": [
+                        {
+                            "sym": "ID",
+                            "children": [],
+                            "token": {
+                                "sym": "ID",
+                                "lexeme": "blammo"
+                            }
+                        }
+                    ],
+                    "token": {
+                        "sym": "NEGATE",
+                        "lexeme": "-"
+                    }
+                }
+            ],
+            "token": {
+                "sym": "NEGATE",
+                "lexeme": "-"
+            }
+        }
+    ],
+    "token": {
+        "sym": "ADDOP",
+        "lexeme": "+"
+    }
+} 
+]
