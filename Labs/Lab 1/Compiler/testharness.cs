@@ -28,7 +28,7 @@ namespace parser{
                     string gspec = Path.Combine("tests",lst[0]);
                     string inpspec = Path.Combine("tests",lst[1]);
                     string expspec = Path.Combine("tests",lst[2]);
-                    Console.WriteLine("------------------>" + readFile(gspec));
+                    //Console.WriteLine("------------------>" + readFile(gspec));
 
                     //Console.WriteLine("lst[0]: "+lst[0]+" gspec: "+gspec);
 
@@ -38,7 +38,7 @@ namespace parser{
                     if( gspec != prevGrammar ){
                         prevGrammar=gspec;
                         T = new Tokenizer(readFile(gspec));
-                        Console.WriteLine("yo here    :" + readFile(gspec));
+                        //Console.WriteLine("yo here    :" + readFile(gspec));
                         Console.WriteLine("Creating tokenizer for "+gspec+"...");
                     }
                     else{
@@ -57,10 +57,8 @@ namespace parser{
                         j++;
                         string explexeme = expected[j++];
                         try{
-                            Console.WriteLine("Here ");
                             var tok = T.next();
                             Console.WriteLine(tok);
-                            Console.WriteLine("Here2 ");
 
                             if ( expsym == "ERROR" ){
                                 Console.WriteLine("Did not expect to get token here\n");

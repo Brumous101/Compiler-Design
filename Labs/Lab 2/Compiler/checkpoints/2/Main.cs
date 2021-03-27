@@ -25,8 +25,25 @@ namespace Compiler
             input = Console.ReadLine();
             Console.WriteLine("Printing out the typed input: " + input);
             T.setInput(input);
-            var t = T.next();
+            var tok = T.next();
             
+            while (tok.Symbol != "$")
+            {
+                string entry = "Node" + i.ToString();
+                N.addNode(entry,tok);
+                if (tok.Symbol == "$")
+                {
+                    Console.WriteLine("Reached EOF");
+                    break;
+                }
+                Console.WriteLine("Input:\n" + input);
+                Console.WriteLine("\tok:" + tok);
+                String sym = tok.Symbol;
+
+
+                tok = T.next();
+                i++;
+            }
             Console.WriteLine("Printing Nodes:");
             foreach (TreeNode node in N.children)
             {

@@ -8,7 +8,7 @@ import os.path
 
 #put the name of the executable here
 #If you don't, the script will use the first exe it finds...
-EXE="Compiler.exe"
+EXE=""
 
 
 

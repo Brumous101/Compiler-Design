@@ -25,8 +25,21 @@ namespace Compiler
             input = Console.ReadLine();
             Console.WriteLine("Printing out the typed input: " + input);
             T.setInput(input);
-            var t = T.next();
+            var tok = T.next();
             
+            while (tok.Symbol != "$")
+            {
+                //i need to turn entry into precedence
+                i = ShuntingYard.precedence(tok.Symbol);
+                string precedence = i.ToString();
+                N.addNode(precedence, tok);
+                if (tok.Symbol == "$")
+                {
+                    Console.WriteLine("Reached EOF");
+                    break;
+                }
+                tok = T.next();
+            }
             Console.WriteLine("Printing Nodes:");
             foreach (TreeNode node in N.children)
             {
