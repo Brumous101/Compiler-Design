@@ -11,14 +11,14 @@ namespace Compiler
         public string sym;
         public Token token;
         public List<TreeNode> children = new List<TreeNode>();
-        public TreeNode(string sym, string token)
+        public TreeNode(string sym, Token token)
         {
             this.sym = sym;
             this.token = token;
         }
-        public void addChild(string name, Token tok)
+        public void addChild(TreeNode node)
         {
-            this.children.Add(new TreeNode(name, tok));
+            this.children.Add(node);
         }
     }
     public class ShuntingYard
@@ -26,20 +26,59 @@ namespace Compiler
         public Stack<TreeNode> numStack = new Stack<TreeNode>();
         public Stack<TreeNode> operatorStack = new Stack<TreeNode>();
 
-        public ShuntingYard(Tokenizer T)
+        public ShuntingYard(Tokenizer T,string input)
         {
-            while (T.atEnd())
+            T.setInput(input);
+            Token previous = null;
+            Token t = null;
+            while ( !(T.atEnd()) )
             {
-                Token t = T.next();
-                if ((t.Symbol == "NUM") || (t.Symbol == "ID"))
-                    numStack.Push(new TreeNode(t.Symbol, t.Lexeme));
+                previous = t;
+                t = T.next();
+                if (t.Lexeme == "-")
+                {
+                    if ( (previous == null) || (previous.Symbol == "LPAREN") || (previous.Symbol == "NUM") || (previous.Symbol == "ID"))
+                    {
+                        t.Symbol = "NEGATE";
+                    }
+                }
+                if ((t.Symbol == "NUM") || (t.Symbol == "ID")) //ID could be variable num is just numbers
+                    numStack.Push(new TreeNode(t.Symbol, t));
                 else
                     handleOperator(t, operatorStack, numStack);
             }
+
+            while (operatorStack.Count() != 0 ) //while not empty
+            {
+                var opNode = operatorStack.Pop();
+                var c1 = numStack.Pop();
+                var c2 = numStack.Pop();
+                opNode.addChild(c2);
+                opNode.addChild(c1);
+                //If we got something on the operator stack, +-*, at this point we have an operator that needs dealt with
+                //opNode is +, get it's two children, two most recent. Pop those c1 and c2. c2, this is like creating the leaf nodes
+                //the thing on numstack that gets pushed is like
+                //     +
+                //    /  \        <--opNode
+                //   1    2     
+                numStack.Push(opNode);
+                // Parse through these nodes and solves
+                // if sym opNode
+                // KJ
+                // At this point we want to check to
+                // sym == "ADDOP"
+                // c2 + c1
+                // 
+                // COME BACK TO THIS
+            }
+            // nothing left in operatorStack
+            // ALL NODES ARE IN NUMSTACK!
+            Console.WriteLine(handleNode(numStack.Peek()).token.Lexeme);
         }
-        public void addNode(string name, Token tok)
+        // tree of nodes
+        public string handleNode(string tok)
         {
-            this.children.Add(new TreeNode(name, tok));
+
         }
         public static int precedence(string sym)//return how high of a operator we have
         {
@@ -57,25 +96,55 @@ namespace Compiler
         }
         public void handleOperator(Token t, Stack<TreeNode> operatorStack, Stack<TreeNode> numStack)
         {
+            // ** has to be right associative and not left
+            // 3**2**2
+            // 3**4
+            // NOT 9**2
+            string assoc = associativity(t.Symbol);
+            string sym = t.Symbol;
             while (true)
             {
                 if (operatorStack.Count == 0)
                     break;
-                var A = operatorStack.Peek();
-                if (precedence(A) >= precedence(t.Symbol))
+                var A = operatorStack.Peek().sym;//Peek and top do the same thing I think
+                if ( (assoc =="L" && (precedence(A) >= precedence(t.Symbol) )) || ( assoc == "R" && (precedence(A) > precedence(t.Symbol)) ) )
                 {
                     var opNode = operatorStack.Pop();
                     var c1 = numStack.Pop();
-                    var c2 = numStack.Pop();
-                // notice order: First popped = last added
-                    opNode.addChild(c2)
-                    opNode.addChild(c1)
-                    numStack.push(opNode)
+                    if (arity(A) == 2)// check the top thing in op stack's arity
+                    {
+                        var c2 = numStack.Pop();
+                        // notice order: First popped = last added
+                        opNode.addChild(c2);
+                    }
+                    opNode.addChild(c1);
+                    numStack.Push(opNode);
                 }
                 else
                     break;
-                operatorStack.push(Node(t.sym, t.lexeme))
             }
+            operatorStack.Push(new TreeNode(t.Symbol, t));
+        }
+        public string associativity(string sym)
+        {
+            // ** has to be right associative and not left
+            // 3**2**2
+            // 3**4
+            // NOT 9**2
+            if (sym == "POWOP" || sym == "NEGATE"/* || sym == "BITNOT"*/)
+                return "R";
+            else
+                return "L";
+        }
+        public int arity(string nary)
+        {
+            // arity is necessary cause if you try to look at the second object and it's arity is 1 you will look annoying
+            // if its a negate you will have a number joined by just the negate sym so it will be 1
+            // if its a ADDOP you will have two numbers joined by a ADDOP so it will be 2
+            if( nary == "NEGATE" /*|| nary == "BITNOT"*/)
+                return 1;
+            else
+                return 2;
         }
     }
 }
