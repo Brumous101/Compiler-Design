@@ -40,7 +40,6 @@ namespace Compiler
         int lineNum;
         int inputLength;
         List<Terminal> terminals = new List<Terminal>();
-        List<Token> tokenStream = new List<Token>();
         Regex newLineRex;
         public Tokenizer(string gdata)
         {
@@ -61,7 +60,7 @@ namespace Compiler
             }
             foreach (var token in this.terminals)
             {
-                //Console.WriteLine(token.sym + " " + token.rex);
+                Console.WriteLine(token.sym + " " + token.rex);
             }
         }
         public void setInput(string input)
@@ -78,7 +77,6 @@ namespace Compiler
             if (this.idx >= inputLength)
             {
                 Console.WriteLine("EOF");
-                tokenStream.Add(new Token("$", "", -1));
                 return new Token("$", "", -1);
             }
             else
@@ -110,7 +108,6 @@ namespace Compiler
                                     lineNum++;
                                 }
                                 else
-                                    tokenStream.Add(new Token(term.sym, m.Value, (this.lineNum + 1)));
                                     return new Token(term.sym, m.Value, (this.lineNum + 1));
                             }
                         }
@@ -124,9 +121,6 @@ namespace Compiler
                                 return next();
                             }
                         }
-                    }
-                    foreach (Token token in tokenStream){
-                        Console.WriteLine("Failure, returning tokens"+ token);
                     }
                     throw new InvalidOperationException("Out of Range Error");
                 }

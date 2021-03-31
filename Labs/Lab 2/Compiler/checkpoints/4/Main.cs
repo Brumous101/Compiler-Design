@@ -18,7 +18,7 @@ namespace Compiler
 
         public static void Main(string[] args)
         {
-            Tokenizer T = new Tokenizer(readFile("../../../terminals.txt"));
+            Tokenizer T = new Tokenizer(readFile("../../../../terminals.txt"));
             
             string input = Console.ReadLine();
 
