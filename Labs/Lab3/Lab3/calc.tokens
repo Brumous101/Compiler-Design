@@ -1,0 +1,5 @@
+NUM=1
+ADDOP=2
+MULOP=3
+LP=4
+RP=5

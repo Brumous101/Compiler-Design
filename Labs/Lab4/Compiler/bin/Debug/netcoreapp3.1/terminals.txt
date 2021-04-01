@@ -1,0 +1,12 @@
+SEMI :      ;
+WHILE :     \bwhile\b
+LP :        [(]
+RP :        [)]
+IF :        \bif\b
+ELSE :      \belse\b
+RETURN :    \breturn\b
+LBR :       [{]
+RBR :       [}]
+NUM :       -?\d+
+WHITESPACE: \s+
+COMMENT:    //[^\n]*

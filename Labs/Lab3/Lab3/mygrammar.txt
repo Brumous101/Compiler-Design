@@ -1,0 +1,9 @@
+grammar mygrammar;
+
+tokens { ID, EQ, LP, RP, SEMI, NUM, COMMA, STRINGCONST }
+
+start : stmtList EOF ;
+stmtList : assign stmtList | funcCall | /*lambda*/ ;
+assign : ID EQ NUM SEMI | ID EQ STRINGCONST SEMI ;
+funcCall : ID LP numList RP SEMI ;
+numList : NUM COMMA numList | NUM ;

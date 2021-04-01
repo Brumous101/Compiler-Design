@@ -1,0 +1,7 @@
+NUM : \d+
+POWOP : \*\*
+MULOP : [*/]
+ADDOP : [-+]
+LPAREN : [(]
+RPAREN : [)]
+WHITESPACE: \s+

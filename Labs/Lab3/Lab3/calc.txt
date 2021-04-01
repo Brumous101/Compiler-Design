@@ -1,0 +1,9 @@
+grammar calc;
+
+tokens { NUM, ADDOP, MULOP, LP, RP }
+
+    start : sum EOF ;
+    sum : sum ADDOP factor      #sumPlusFactor
+            | factor            #sumToFactor
+            ;
+    factor : NUM ;

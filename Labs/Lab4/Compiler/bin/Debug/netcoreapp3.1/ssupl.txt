@@ -1,0 +1,16 @@
+grammar ssupl;
+
+tokens { SEMI, WHILE, LP, RP, IF, ELSE, RETURN, LBR, RBR, NUM }
+
+start : program EOF ;
+program : braceblock ;
+braceblock : LBR stmts RBR ;
+stmts : stmt stmts | ;
+stmt : cond | loop | returnStmt SEMI ;
+cond : IF LP expr RP braceblock                     #condNoElse
+     | IF LP expr RP braceblock ELSE braceblock     #condElse
+     ;
+expr : factor ;
+factor : NUM ;
+returnStmt : RETURN expr ;
+loop : WHILE LP expr RP braceblock ;
