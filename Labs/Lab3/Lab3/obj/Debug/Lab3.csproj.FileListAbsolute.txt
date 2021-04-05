@@ -1,9 +1,8 @@
-C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab3\Lab3\obj\Debug\Lab3.csprojAssemblyReference.cache
-C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab3\Lab3\obj\Debug\Lab3.csproj.CoreCompileInputs.cache
+C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab3\Lab3\bin\Debug\Lab3.exe
 C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab3\Lab3\bin\Debug\Lab3.pdb
 C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab3\Lab3\bin\Debug\Antlr4.Runtime.Standard.dll
 C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab3\Lab3\bin\Debug\Antlr4.Runtime.Standard.xml
+C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab3\Lab3\obj\Debug\Lab3.csproj.CoreCompileInputs.cache
 C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab3\Lab3\obj\Debug\Lab3.csproj.CopyComplete
-C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab3\Lab3\obj\Debug\Lab3.pdb
-C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab3\Lab3\bin\Debug\Lab3.exe
 C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab3\Lab3\obj\Debug\Lab3.exe
+C:\Users\Brumo\Documents\repos\Compiler-Design\Labs\Lab3\Lab3\obj\Debug\Lab3.pdb

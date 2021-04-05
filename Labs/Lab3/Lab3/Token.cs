@@ -79,6 +79,10 @@ namespace Compiler
             {
                 //Console.WriteLine("EOF");
                 tokenStream.Add(new Token("$", "", -1));
+                /*foreach (Token token in tokenStream)
+                {
+                    Console.WriteLine("EOF Reached: " + token);
+                }*/
                 return new Token("$", "", -1);
             }
             else
@@ -124,10 +128,10 @@ namespace Compiler
                                 return next();
                             }
                         }
-                    }
+                    }/*
                     foreach (Token token in tokenStream){
                         Console.WriteLine("Failure, returning tokens"+ token);
-                    }
+                    }*/
                     throw new InvalidOperationException("Out of Range Error");
                 }
             }

@@ -1,9 +1,22 @@
 grammar calc;
 
-tokens { NUM, ADDOP, MULOP, LP, RP }
+tokens { NUM, ADDOP, MULOP, POWOP, LP, RP }
 
     start : sum EOF ;
-    sum : sum ADDOP factor      #sumPlusFactor
-            | factor            #sumToFactor
+
+    sum : sum ADDOP product      #sumPlusProduct
+            | product            #sumToProduct
             ;
-    factor : NUM ;
+    product: product MULOP negate  #productMultiplyNegate
+            | negate               #productToNegate
+            ;
+    negate : ADDOP negate         #addopNegate
+            | power               #negateToPower
+            ;
+    power : factor POWOP negate     #factorPowopNegate
+            | factor                #powerToFactor
+            ;
+    factor : NUM                 #factorToNum 
+            | parens             #factorToParens
+            ;
+    parens : LP sum RP ;

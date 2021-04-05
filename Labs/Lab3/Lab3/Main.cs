@@ -34,27 +34,25 @@ namespace Compiler
             }
         }
     }
+    static class Annotations
+    {
+        public static ParseTreeProperty<double> ptp = new ParseTreeProperty<double>();
+    }
     public class MyListener : calcBaseListener
     {
-        public override void ExitFactor(calcParser.FactorContext context)
-        {
-            base.ExitFactor(context);
-            double value = Double.Parse(context.NUM().GetText());
-            Annotations.ptp.Put(context, value);
-        }
         public override void ExitStart(calcParser.StartContext context)
         {
             base.ExitStart(context);
             double v = Annotations.ptp.Get(context.sum());
             Annotations.ptp.Put(context, v);
         }
-        public override void ExitSumPlusFactor(calcParser.SumPlusFactorContext context)
+        public override void ExitSumPlusProduct(calcParser.SumPlusProductContext context)
         {
-            base.ExitSumPlusFactor(context);
+            base.ExitSumPlusProduct(context);
             var sum = context.sum();
-            var factor = context.factor();
+            var product = context.product();
             double v1 = Annotations.ptp.Get(sum);
-            double v2 = Annotations.ptp.Get(factor);
+            double v2 = Annotations.ptp.Get(product);
             double res;
             if (context.ADDOP().GetText() == "+")
                 res = v1 + v2;
@@ -62,19 +60,87 @@ namespace Compiler
                 res = v1 - v2;
             Annotations.ptp.Put(context, res);
         }
-        public override void ExitSumToFactor(calcParser.SumToFactorContext context)
+        public override void ExitSumToProduct(calcParser.SumToProductContext context)
         {
-            base.ExitSumToFactor(context);
+            base.ExitSumToProduct(context);
+            var product = context.product();
+            double v = Annotations.ptp.Get(product);
+            Annotations.ptp.Put(context, v);
+        }
+        public override void ExitProductMultiplyNegate(calcParser.ProductMultiplyNegateContext context)
+        {
+            base.ExitProductMultiplyNegate(context);
+            var sum = context.product();
+            var negate = context.negate();
+            double v1 = Annotations.ptp.Get(sum);
+            double v2 = Annotations.ptp.Get(negate);
+            double res;
+            if (context.MULOP().GetText() == "*")
+                res = v1 * v2;
+            else
+                res = v1 / v2;
+            Annotations.ptp.Put(context, res);
+        }
+        public override void ExitProductToNegate(calcParser.ProductToNegateContext context)
+        {
+            base.ExitProductToNegate(context);
+            var negate = context.negate();
+            double v = Annotations.ptp.Get(negate);
+            Annotations.ptp.Put(context, v);
+        }
+        public override void ExitFactorToParens(calcParser.FactorToParensContext context)
+        {
+            base.ExitFactorToParens(context);
+            var parens = context.parens();
+            double v = Annotations.ptp.Get(parens);
+            Annotations.ptp.Put(context, v);
+        }
+        public override void ExitFactorToNum(calcParser.FactorToNumContext context)
+        {
+            base.ExitFactorToNum(context);
+            double value = Double.Parse(context.NUM().GetText());
+            Annotations.ptp.Put(context, value);
+        }
+        public override void ExitParens(calcParser.ParensContext context)
+        {
+            base.ExitParens(context);
+            var sum = context.sum();
+            double v = Annotations.ptp.Get(sum);
+            Annotations.ptp.Put(context, v);
+        }
+        public override void ExitAddopNegate(calcParser.AddopNegateContext context)
+        {
+            base.ExitAddopNegate(context);
+            var negate = context.negate();
+            double v2 = Annotations.ptp.Get(negate);
+            double res = v2 * (-1);
+            Annotations.ptp.Put(context, res);
+        }
+        public override void ExitNegateToPower(calcParser.NegateToPowerContext context)
+        {
+            base.ExitNegateToPower(context);
+            var power = context.power();
+            double v = Annotations.ptp.Get(power);
+            Annotations.ptp.Put(context, v);
+        }
+        public override void ExitFactorPowopNegate(calcParser.FactorPowopNegateContext context)
+        {
+            base.ExitFactorPowopNegate(context);
+            var factor = context.factor();
+            var negate = context.negate();
+            double v1 = Annotations.ptp.Get(factor);
+            double v2 = Annotations.ptp.Get(negate);
+            double res = Math.Pow(v1, v2);
+            Annotations.ptp.Put(context, res);
+        }
+        public override void ExitPowerToFactor(calcParser.PowerToFactorContext context)
+        {
+            base.ExitPowerToFactor(context);
             var factor = context.factor();
             double v = Annotations.ptp.Get(factor);
             Annotations.ptp.Put(context, v);
         }
     }
-    static class Annotations
-    {
-        public static ParseTreeProperty<double> ptp = new ParseTreeProperty<double>();
-    }
-
     public class MainClass
     {
         public static void Main(string[] args)
@@ -87,13 +153,7 @@ namespace Compiler
             }
             var tokenizer = new Tokenizer(gdata);
             string idata = Console.ReadLine();
-            //var input = Console.ReadLine();
-             
-            //using (var r = new StreamReader("input.txt"))
-            //{
-            //    idata = r.ReadToEnd();
-            //}
-            
+
             tokenizer.setInput(idata);
             IList<IToken> tokens = new List<IToken>();
             while (true)
@@ -117,10 +177,7 @@ namespace Compiler
             walker.Walk(listener, antlrroot);
             double v = Annotations.ptp.Get(antlrroot);
             Console.WriteLine($"{v}");
-
-            //Regex re = new Regex("\n[ \t]+([^\n]+)");
-            //string input = "";
-            //re.Replace(input, " $1");
         }
     }
 }
+

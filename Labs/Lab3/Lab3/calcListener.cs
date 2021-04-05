@@ -41,37 +41,133 @@ public interface IcalcListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitStart([NotNull] calcParser.StartContext context);
 	/// <summary>
-	/// Enter a parse tree produced by the <c>sumPlusFactor</c>
+	/// Enter a parse tree produced by the <c>sumPlusProduct</c>
 	/// labeled alternative in <see cref="calcParser.sum"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterSumPlusFactor([NotNull] calcParser.SumPlusFactorContext context);
+	void EnterSumPlusProduct([NotNull] calcParser.SumPlusProductContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>sumPlusFactor</c>
+	/// Exit a parse tree produced by the <c>sumPlusProduct</c>
 	/// labeled alternative in <see cref="calcParser.sum"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitSumPlusFactor([NotNull] calcParser.SumPlusFactorContext context);
+	void ExitSumPlusProduct([NotNull] calcParser.SumPlusProductContext context);
 	/// <summary>
-	/// Enter a parse tree produced by the <c>sumToFactor</c>
+	/// Enter a parse tree produced by the <c>sumToProduct</c>
 	/// labeled alternative in <see cref="calcParser.sum"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterSumToFactor([NotNull] calcParser.SumToFactorContext context);
+	void EnterSumToProduct([NotNull] calcParser.SumToProductContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>sumToFactor</c>
+	/// Exit a parse tree produced by the <c>sumToProduct</c>
 	/// labeled alternative in <see cref="calcParser.sum"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitSumToFactor([NotNull] calcParser.SumToFactorContext context);
+	void ExitSumToProduct([NotNull] calcParser.SumToProductContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="calcParser.factor"/>.
+	/// Enter a parse tree produced by the <c>productMultiplyNegate</c>
+	/// labeled alternative in <see cref="calcParser.product"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterFactor([NotNull] calcParser.FactorContext context);
+	void EnterProductMultiplyNegate([NotNull] calcParser.ProductMultiplyNegateContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="calcParser.factor"/>.
+	/// Exit a parse tree produced by the <c>productMultiplyNegate</c>
+	/// labeled alternative in <see cref="calcParser.product"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitFactor([NotNull] calcParser.FactorContext context);
+	void ExitProductMultiplyNegate([NotNull] calcParser.ProductMultiplyNegateContext context);
+	/// <summary>
+	/// Enter a parse tree produced by the <c>productToNegate</c>
+	/// labeled alternative in <see cref="calcParser.product"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterProductToNegate([NotNull] calcParser.ProductToNegateContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>productToNegate</c>
+	/// labeled alternative in <see cref="calcParser.product"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitProductToNegate([NotNull] calcParser.ProductToNegateContext context);
+	/// <summary>
+	/// Enter a parse tree produced by the <c>addopNegate</c>
+	/// labeled alternative in <see cref="calcParser.negate"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterAddopNegate([NotNull] calcParser.AddopNegateContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>addopNegate</c>
+	/// labeled alternative in <see cref="calcParser.negate"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitAddopNegate([NotNull] calcParser.AddopNegateContext context);
+	/// <summary>
+	/// Enter a parse tree produced by the <c>negateToPower</c>
+	/// labeled alternative in <see cref="calcParser.negate"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterNegateToPower([NotNull] calcParser.NegateToPowerContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>negateToPower</c>
+	/// labeled alternative in <see cref="calcParser.negate"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitNegateToPower([NotNull] calcParser.NegateToPowerContext context);
+	/// <summary>
+	/// Enter a parse tree produced by the <c>factorPowopNegate</c>
+	/// labeled alternative in <see cref="calcParser.power"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterFactorPowopNegate([NotNull] calcParser.FactorPowopNegateContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>factorPowopNegate</c>
+	/// labeled alternative in <see cref="calcParser.power"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitFactorPowopNegate([NotNull] calcParser.FactorPowopNegateContext context);
+	/// <summary>
+	/// Enter a parse tree produced by the <c>powerToFactor</c>
+	/// labeled alternative in <see cref="calcParser.power"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterPowerToFactor([NotNull] calcParser.PowerToFactorContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>powerToFactor</c>
+	/// labeled alternative in <see cref="calcParser.power"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitPowerToFactor([NotNull] calcParser.PowerToFactorContext context);
+	/// <summary>
+	/// Enter a parse tree produced by the <c>factorToNum</c>
+	/// labeled alternative in <see cref="calcParser.factor"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterFactorToNum([NotNull] calcParser.FactorToNumContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>factorToNum</c>
+	/// labeled alternative in <see cref="calcParser.factor"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitFactorToNum([NotNull] calcParser.FactorToNumContext context);
+	/// <summary>
+	/// Enter a parse tree produced by the <c>factorToParens</c>
+	/// labeled alternative in <see cref="calcParser.factor"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterFactorToParens([NotNull] calcParser.FactorToParensContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>factorToParens</c>
+	/// labeled alternative in <see cref="calcParser.factor"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitFactorToParens([NotNull] calcParser.FactorToParensContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="calcParser.parens"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterParens([NotNull] calcParser.ParensContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="calcParser.parens"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitParens([NotNull] calcParser.ParensContext context);
 }

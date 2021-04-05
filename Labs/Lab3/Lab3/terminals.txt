@@ -1,5 +1,7 @@
-NUM : -?\d+
-ADDOP : [-+]
+NUM : \d+
+POWOP : \*\*
 MULOP : [*/]
+ADDOP : [-+]
 LP : [(]
 RP : [)]
+WHITESPACE : \s+

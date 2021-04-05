@@ -48,45 +48,157 @@ public partial class calcBaseListener : IcalcListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitStart([NotNull] calcParser.StartContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by the <c>sumPlusFactor</c>
+	/// Enter a parse tree produced by the <c>sumPlusProduct</c>
 	/// labeled alternative in <see cref="calcParser.sum"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterSumPlusFactor([NotNull] calcParser.SumPlusFactorContext context) { }
+	public virtual void EnterSumPlusProduct([NotNull] calcParser.SumPlusProductContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by the <c>sumPlusFactor</c>
+	/// Exit a parse tree produced by the <c>sumPlusProduct</c>
 	/// labeled alternative in <see cref="calcParser.sum"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitSumPlusFactor([NotNull] calcParser.SumPlusFactorContext context) { }
+	public virtual void ExitSumPlusProduct([NotNull] calcParser.SumPlusProductContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by the <c>sumToFactor</c>
+	/// Enter a parse tree produced by the <c>sumToProduct</c>
 	/// labeled alternative in <see cref="calcParser.sum"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterSumToFactor([NotNull] calcParser.SumToFactorContext context) { }
+	public virtual void EnterSumToProduct([NotNull] calcParser.SumToProductContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by the <c>sumToFactor</c>
+	/// Exit a parse tree produced by the <c>sumToProduct</c>
 	/// labeled alternative in <see cref="calcParser.sum"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitSumToFactor([NotNull] calcParser.SumToFactorContext context) { }
+	public virtual void ExitSumToProduct([NotNull] calcParser.SumToProductContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="calcParser.factor"/>.
+	/// Enter a parse tree produced by the <c>productMultiplyNegate</c>
+	/// labeled alternative in <see cref="calcParser.product"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterFactor([NotNull] calcParser.FactorContext context) { }
+	public virtual void EnterProductMultiplyNegate([NotNull] calcParser.ProductMultiplyNegateContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="calcParser.factor"/>.
+	/// Exit a parse tree produced by the <c>productMultiplyNegate</c>
+	/// labeled alternative in <see cref="calcParser.product"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitFactor([NotNull] calcParser.FactorContext context) { }
+	public virtual void ExitProductMultiplyNegate([NotNull] calcParser.ProductMultiplyNegateContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by the <c>productToNegate</c>
+	/// labeled alternative in <see cref="calcParser.product"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterProductToNegate([NotNull] calcParser.ProductToNegateContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>productToNegate</c>
+	/// labeled alternative in <see cref="calcParser.product"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitProductToNegate([NotNull] calcParser.ProductToNegateContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by the <c>addopNegate</c>
+	/// labeled alternative in <see cref="calcParser.negate"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterAddopNegate([NotNull] calcParser.AddopNegateContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>addopNegate</c>
+	/// labeled alternative in <see cref="calcParser.negate"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitAddopNegate([NotNull] calcParser.AddopNegateContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by the <c>negateToPower</c>
+	/// labeled alternative in <see cref="calcParser.negate"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterNegateToPower([NotNull] calcParser.NegateToPowerContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>negateToPower</c>
+	/// labeled alternative in <see cref="calcParser.negate"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitNegateToPower([NotNull] calcParser.NegateToPowerContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by the <c>factorPowopNegate</c>
+	/// labeled alternative in <see cref="calcParser.power"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterFactorPowopNegate([NotNull] calcParser.FactorPowopNegateContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>factorPowopNegate</c>
+	/// labeled alternative in <see cref="calcParser.power"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitFactorPowopNegate([NotNull] calcParser.FactorPowopNegateContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by the <c>powerToFactor</c>
+	/// labeled alternative in <see cref="calcParser.power"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterPowerToFactor([NotNull] calcParser.PowerToFactorContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>powerToFactor</c>
+	/// labeled alternative in <see cref="calcParser.power"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitPowerToFactor([NotNull] calcParser.PowerToFactorContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by the <c>factorToNum</c>
+	/// labeled alternative in <see cref="calcParser.factor"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterFactorToNum([NotNull] calcParser.FactorToNumContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>factorToNum</c>
+	/// labeled alternative in <see cref="calcParser.factor"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitFactorToNum([NotNull] calcParser.FactorToNumContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by the <c>factorToParens</c>
+	/// labeled alternative in <see cref="calcParser.factor"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterFactorToParens([NotNull] calcParser.FactorToParensContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>factorToParens</c>
+	/// labeled alternative in <see cref="calcParser.factor"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitFactorToParens([NotNull] calcParser.FactorToParensContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="calcParser.parens"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterParens([NotNull] calcParser.ParensContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="calcParser.parens"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitParens([NotNull] calcParser.ParensContext context) { }
 
 	/// <inheritdoc/>
 	/// <remarks>The default implementation does nothing.</remarks>
