@@ -1,0 +1,24 @@
+SEMI :      ;
+TYPE: \bint\b
+WHILE :     \bwhile\b
+LP :        [(]
+RP :        [)]
+IF :        \bif\b
+ELSE :      \belse\b
+RETURN :    \breturn\b
+LBR :       [{]
+RBR :       [}]
+NUM :       \d+
+WHITESPACE: \s+
+COMMENT:    //[^\n]*
+OR : \bor\b
+AND : \band\b
+NOT : \bnot\b
+RELOP : >=|<=|>|<|!=|==
+EQ : =
+PLUS : [+]
+MULOP : [\*/%]
+MINUS : -
+LP : [(]
+RP : [)]
+ID:[A-Za-z_]\w*

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "R+BHYRjWVNZPP9fksM9ofL7SLw8GZs4h87duLVvZFLbd42Oyp166v7VAujluzIukDRBiLyOeYWf3Ks0JXdk6wg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Brumo\\Documents\\repos\\Compiler-Design\\Labs\\Lab6\\Compiler\\Compiler.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Brumo\\.nuget\\packages\\antlr4.runtime.standard\\4.9.2\\antlr4.runtime.standard.4.9.2.nupkg.sha512"
+  ],
+  "logs": []
+}

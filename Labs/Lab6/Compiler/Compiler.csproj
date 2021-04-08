@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Antlr4.Runtime.Standard" Version="4.9.2" />
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="C:\jdk-16\bin\java.exe -cp C:\antlr-4.9.2-complete.jar org.antlr.v4.Tool -Dlanguage=CSharp -Werror $(SolutionDir)bin\debug\netcoreapp3.1\ssupl.txt" />
+  </Target>
+
+</Project>
