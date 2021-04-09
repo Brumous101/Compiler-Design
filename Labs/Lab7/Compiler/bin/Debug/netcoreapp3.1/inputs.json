@@ -1,0 +1,1243 @@
+[
+
+  { "code": "{ return 1; }",    "syntaxOK": true,    "output":"",    "returns": 1,    "bonus": false  },
+  { "code": "{ return 2 or 0;}",    "syntaxOK": true,    "output":"",    "returns": 1,    "bonus": false  },
+  { "code": "{ return 0 or 2;}",    "syntaxOK": true,    "output":"",    "returns": 1,    "bonus": false  },
+  { "code": "{ return 2 or 0 or 7;}",    "syntaxOK": true,    "output":"",    "returns": 1,    "bonus": false  },
+  { "code": "{ return 0 or 2 or 7;}",    "syntaxOK": true,    "output":"",    "returns": 1,    "bonus": false  },
+  { "code": "{ return 0 or 0 or 7;}",    "syntaxOK": true,    "output":"",    "returns": 1,    "bonus": false  },
+  { "code": "{ return 2+2 or 0 or 7*4;}",    "syntaxOK": true,    "output":"",    "returns": 1,    "bonus": false  },
+
+  { "code": "{ return 1; }",    "syntaxOK": true,    "output":"",    "returns": 1,    "bonus": false  },
+  { "code": "{ return 2 and 0;}",    "syntaxOK": true,    "output":"",    "returns": 0,    "bonus": false  },
+  { "code": "{ return 0 and 2;}",    "syntaxOK": true,    "output":"",    "returns": 0,    "bonus": false  },
+  { "code": "{ return 2 and 0 and 7;}",    "syntaxOK": true,    "output":"",    "returns": 0,    "bonus": false  },
+  { "code": "{ return 0 and 2 and 7;}",    "syntaxOK": true,    "output":"",    "returns": 0,    "bonus": false  },
+  { "code": "{ return 0 and 0 and 7;}",    "syntaxOK": true,    "output":"",    "returns": 0,    "bonus": false  },
+  { "code": "{ return 2+2 and 0 and 7*4;}",    "syntaxOK": true,    "output":"",    "returns": 0,    "bonus": false  },
+  
+  { "code": "{ return not 2+2;}",    "syntaxOK": true,    "output":"",    "returns": 0,    "bonus": false  },
+  { "code": "{ return not 0;}",    "syntaxOK": true,    "output":"",    "returns": 1,    "bonus": false  },
+
+ 
+ 
+  {
+    "code": ''
+int x;
+int y;
+int z;
+{
+    //simple addition test
+    x = 42;
+    y = 10;
+    z = x+y;
+    return z;
+}
+'',
+    "syntaxOK": true,
+    "returns": 52,
+    "bonus": false
+  },
+  {
+    "code": ''
+int x;
+{
+    x = 42;
+    return 1;
+}
+'',
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": ''
+int x;
+{
+    //undeclared variable y
+    x = 12;
+    y = 42;
+}
+'',
+    "syntaxOK": false,
+    "returns": null,
+    "bonus": false
+  },
+  {
+    "code": ''
+int x;
+int y;
+int z;
+int w;
+{
+    w = -42;
+    x = -w;
+    y = 10;
+    z = x+y;
+    x = z*y/x;
+    return x;
+}
+'',
+    "syntaxOK": true,
+    "returns": 12,
+    "bonus": false
+  },
+  {
+    "code": ''
+int x;
+int y;
+int z;
+int main;
+{
+    x=4;
+    y=5;
+    z=6;
+    return x+y+z;
+}
+'',
+    "syntaxOK": true,
+    "returns": 15,
+    "bonus": false
+  },
+  {
+    "code": ''
+int x;
+int y;
+int z;
+int w;
+int main;
+{
+    w=1;
+    x=2;
+    y=3;
+    z=4;
+    return x * (y + z ) * (y + w) ;
+}
+'',
+    "syntaxOK": true,
+    "returns": 56,
+    "bonus": false
+  },
+  {
+    "code": ''
+//fibonacci sequence: Compute fib(10)
+int i;
+int v0;
+int v1;
+int tmp;
+{
+    i=0;
+    v0=0;
+    v1=1;
+    while(i<10){
+        tmp = v0+v1;
+        v1=v0;
+        v0=tmp;
+        i = i+1;
+    }
+    return v0;
+}
+'',
+    "syntaxOK": true,
+    "returns": 55,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 2+4;
+}
+'',
+    "syntaxOK": true,
+    "returns": 6,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 1+2*3-4;
+}
+'',
+    "syntaxOK": true,
+    "returns": 3,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 2+2 and 0 or 7*4;
+}
+'',
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 2+2 or 0 or 7*4;
+}
+'',
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 2+2 and 0 and 7*4;
+}
+'',
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 2 or 4;
+}
+'',
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 0 or 4;
+}
+'',
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 4 or 0;
+}
+'',
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 0 or 0;
+}
+'',
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 3 and 5;
+}
+'',
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 0 and 5;
+}
+'',
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 5 and 0;
+}
+'',
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 0 and 0;
+}
+'',
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return not 5;
+}
+'',
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return not 0;
+}
+'',
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return not 2+3;
+}
+'',
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return not 0+0;
+}
+'',
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 3+4;
+}
+'',
+    "syntaxOK": true,
+    "returns": 7,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 5+6;
+}
+'',
+    "syntaxOK": true,
+    "returns": 11,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 3+4 and 5+6;
+}
+'',
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 1 > 2;
+}
+'',
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 2 > 1;
+}
+'',
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 1 < 2;
+}
+'',
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 2 < 1;
+}
+'',
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 1 == 2;
+}
+'',
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 1 == 1;
+}
+'',
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 1 != 2;
+}
+'',
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 1 != 1;
+}
+'',
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 1 >= 2;
+}
+'',
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 2 >= 1;
+}
+'',
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 1 <= 2;
+}
+'',
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 2 <= 1;
+}
+'',
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 3 + 4;
+}
+'',
+    "syntaxOK": true,
+    "returns": 7,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 5 - 2;
+}
+'',
+    "syntaxOK": true,
+    "returns": 3,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 3 * 4;
+}
+'',
+    "syntaxOK": true,
+    "returns": 12,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 3 * 5 + 2;
+}
+'',
+    "syntaxOK": true,
+    "returns": 17,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 2 + 3*5;
+}
+'',
+    "syntaxOK": true,
+    "returns": 17,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 3*5-4;
+}
+'',
+    "syntaxOK": true,
+    "returns": 11,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 20-3*4;
+}
+'',
+    "syntaxOK": true,
+    "returns": 8,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return 12/6;
+}
+'',
+    "syntaxOK": true,
+    "returns": 2,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+return -(1-4);
+}
+'',
+    "syntaxOK": true,
+    "returns": 3,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+    if( 12 ){
+        return 34;
+    } else {
+        return 78;
+    }
+    return 56;
+}
+'',
+    "syntaxOK": true,
+    "returns": 34,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+    if( 0 ){
+        return 34;
+    } else {
+        return 78;
+    }
+    return 56;
+}
+'',
+    "syntaxOK": true,
+    "returns": 78,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+    if( 0 ){
+        return 34;
+    } 
+    return 56;
+}
+'',
+    "syntaxOK": true,
+    "returns": 56,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+    while( 123 ){
+        return 12;
+    }
+    return 34;
+}
+'',
+    "syntaxOK": true,
+    "returns": 12,
+    "bonus": false
+  },
+  {
+    "code": ''
+{
+    while( 0 ){
+        return 12;
+    }
+    return 34;
+}
+'',
+    "syntaxOK": true,
+    "returns": 34,
+    "bonus": false
+  },
+   
+   
+   
+   
+   
+   
+   
+   
+  
+  
+   
+  {
+    "code": "{return 1.0 or 2.0; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+  {
+    "code": "{return 1   or 2.0; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+  {
+    "code": "{return 1.0 or 2  ; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+  {
+    "code": "{return 2 + (10 or 20); }",
+    "syntaxOK": true,
+    "returns": 3,
+    "bonus": false
+  },
+   
+  {
+    "code": "{return 1.0 and 2.0; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+  {
+    "code": "{return 1   and 2.0; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+  {
+    "code": "{return 1.0 and 2  ; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+  {
+    "code": "{return 2 + (10 and 20); }",
+    "syntaxOK": true,
+    "returns": 3,
+    "bonus": false
+  },
+  {
+    "code": "{return not 1.0; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+  {
+    "code": "{return 2 + (not 0); }",
+    "syntaxOK": true,
+    "returns": 3,
+    "bonus": false
+  },
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  
+  {
+    "code": "{return (525+450) > 425 + 50; }",
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": "{return (125+450) > 525 + 50; }",
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": "{return (425+50) > 525+450; }",
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  
+
+  {
+    "code": "{return (525+450) < 425 + 50; }",
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": "{return (125+450) < 525 + 50; }",
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": "{return (425+50) < 525+450; }",
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  
+  
+  {
+    "code": "{return (525+450) >= 425 + 50; }",
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": "{return (125+450) >= 525 + 50; }",
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": "{return (425+50) >= 525+450; }",
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },  
+  
+  {
+    "code": "{return (525+450) <= 425 + 50; }",
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": "{return (125+450) <= 525 + 50; }",
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": "{return (425+50) <= 525+450; }",
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  
+  {
+    "code": "{return (525+450) == 425 + 50; }",
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": "{return (125+450) == 525 + 50; }",
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": "{return (425+50) == 525+450; }",
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },  
+  
+  {
+    "code": "{return (525+450) != 425 + 50; }",
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": "{return (125+450) !=  525 + 50; }",
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": "{return (425+50) != 525+450; }",
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  {
+    "code": "{return (5.25+4.50) > 4.25 + 0.50; }",
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": "{return (1.25+4.50) > 5.25 + 0.50; }",
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": "{return (4.25+0.50) > 5.25+4.50; }",
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  
+
+  {
+    "code": "{return (5.25+4.50) < 4.25 + 0.50; }",
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": "{return (1.25+4.50) < 5.25 + 0.50; }",
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": "{return (4.25+0.50) < 5.25+4.50; }",
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  
+  
+  {
+    "code": "{return (5.25+4.50) >= 4.25 + 0.50; }",
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": "{return (1.25+4.50) >= 5.25 + 0.50; }",
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": "{return (4.25+0.50) >= 5.25+4.50; }",
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },  
+  
+  {
+    "code": "{return (5.25+4.50) <= 4.25 + 0.50; }",
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": "{return (1.25+4.50) <= 5.25 + 0.50; }",
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": "{return (4.25+0.50) <= 5.25+4.50; }",
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  
+  {
+    "code": "{return (5.25+4.50) == 4.25 + 0.50; }",
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": "{return (1.25+4.50) == 5.25 + 0.50; }",
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": "{return (4.25+0.50) == 5.25+4.50; }",
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },  
+  
+  {
+    "code": "{return (5.25+4.50) != 4.25 + 0.50; }",
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  {
+    "code": "{return (1.25+4.50) !=  5.25 + 0.50; }",
+    "syntaxOK": true,
+    "returns": 0,
+    "bonus": false
+  },
+  {
+    "code": "{return (4.25+0.50) != 5.25+4.50; }",
+    "syntaxOK": true,
+    "returns": 1,
+    "bonus": false
+  },
+  
+  
+  
+  {
+    "code": "{return (4.25+0.50) == 5+4; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+  {
+    "code": "{return (4.25+0.50) != 5+4; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+  {
+    "code": "{return (4.25+0.50) < 5+4; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+  {
+    "code": "{return (4.25+0.50) > 5+4; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+  {
+    "code": "{return (4.25+0.50) <= 5+4; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+  {
+    "code": "{return (4.25+0.50) >= 5+4; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+  
+  {
+    "code": "{return (4+50) == 5.0+4.0; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+  {
+    "code": "{return (4+50) != 5.0+4.0; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+  {
+    "code": "{return (4+50) < 5.0+4.0; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+  {
+    "code": "{return (4+50) > 5.0+4.0; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+  {
+    "code": "{return (4+50) <= 5.0+4.0; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+  {
+    "code": "{return (4+50) >= 5.0+4.0; }",
+    "syntaxOK": false,
+    "bonus": false
+  },
+    
+  
+  
+  
+  
+  
+   
+   
+  {
+    "code": "{return 1 + (2.5>3.5); }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+  {
+    "code": "{return (2.5>3.5) + 1 ; }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+  {
+    "code": "{return 1 + (2>3); }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+  {
+    "code": "{return (2>3) + 1 ; }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+   
+
+
+  {
+    "code": "{return 1 + (2.5<3.5); }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+  {
+    "code": "{return (2.5<3.5) + 1 ; }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+  {
+    "code": "{return 1 + (2<3); }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+  {
+    "code": "{return (2<3) + 1 ; }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+
+
+  {
+    "code": "{return 1 + (2.5>=3.5); }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+  {
+    "code": "{return (2.5>=3.5) + 1 ; }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+  {
+    "code": "{return 1 + (2>=3); }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+  {
+    "code": "{return (2>=3) + 1 ; }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+   
+   
+ 
+  {
+    "code": "{return 1 + (2.5<=3.5); }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+  {
+    "code": "{return (2.5<=3.5) + 1 ; }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+  {
+    "code": "{return 1 + (2<=3); }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+  {
+    "code": "{return (2<=3) + 1 ; }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+   
+   
+   
+   
+  {
+    "code": "{return 1 + (2.5==3.5); }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+  {
+    "code": "{return (2.5==3.5) + 1 ; }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+  {
+    "code": "{return 1 + (2==3); }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+  {
+    "code": "{return (2==3) + 1 ; }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+
+   
+   
+   
+  {
+    "code": "{return 1 + (2.5!=3.5); }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+  {
+    "code": "{return (2.5!=3.5) + 1 ; }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+  {
+    "code": "{return 1 + (2!=3); }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+  {
+    "code": "{return (2!=3) + 1 ; }",
+    "syntaxOK": true,
+    "bonus": false
+  },
+   
+   
+   
+  { "code": "{return int(2); }",   "returns": 2, "syntaxOK": true,    "bonus": false  },
+  { "code": "{return int(2.0); }",   "returns": 2, "syntaxOK": true,    "bonus": false  },
+  { "code": "{return int(2.5); }",   "returns": 2, "syntaxOK": true,    "bonus": false  },
+  { "code": "{return int(2.7); }",   "returns": 2, "syntaxOK": true,    "bonus": false  },
+
+  { "code": "{return int(double(int(2))); }",   "returns": 2, "syntaxOK": true,    "bonus": false  },
+  { "code": "{return int(double(int(2.0))); }",   "returns": 2, "syntaxOK": true,    "bonus": false  },
+  { "code": "{return int(double(int(2.5))); }",   "returns": 2, "syntaxOK": true,    "bonus": false  },
+  { "code": "{return int(double(int(2.7))); }",   "returns": 2, "syntaxOK": true,    "bonus": false  },
+  
+  { "code": "{return 1   + 1; }",    "syntaxOK": true,    "bonus": false  },
+  { "code": "{return 1.5 + 2.5 ; }",    "syntaxOK": true,    "bonus": false  },
+  { "code": "{return 1.5 + 2 ; }",    "syntaxOK": false,   "bonus": false  },
+  { "code": "{return 1   + 2.5 ; }",    "syntaxOK": false,    "bonus": false  },
+ 
+  { "code": "{return 1   - 1; }",    "syntaxOK": true,    "bonus": false  },
+  { "code": "{return 1.5 - 2.5 ; }",    "syntaxOK": true,    "bonus": false  },
+  { "code": "{return 1.5 - 2 ; }",    "syntaxOK": false,   "bonus": false  },
+  { "code": "{return 1   - 2.5 ; }",    "syntaxOK": false,    "bonus": false  },
+ 
+  { "code": "{return 1   * 1; }",    "syntaxOK": true,    "bonus": false  },
+  { "code": "{return 1.5 * 2.5 ; }",    "syntaxOK": true,    "bonus": false  },
+  { "code": "{return 1.5 * 2 ; }",    "syntaxOK": false,   "bonus": false  },
+  { "code": "{return 1   * 2.5 ; }",    "syntaxOK": false,    "bonus": false  },
+ 
+  { "code": "{return 1   / 1; }",    "syntaxOK": true,    "bonus": false  },
+  { "code": "{return 1.5 / 2.5 ; }",    "syntaxOK": true,    "bonus": false  },
+  { "code": "{return 1.5 / 2 ; }",    "syntaxOK": false,   "bonus": false  },
+  { "code": "{return 1   / 2.5 ; }",    "syntaxOK": false,    "bonus": false  },
+
+ 
+  { "code": "{return 1   % 1; }",    "syntaxOK": true,    "bonus": false  },
+  { "code": "{return 1.5 % 2.5 ; }",    "syntaxOK": false,    "bonus": false  },
+  { "code": "{return 1.5 % 2 ; }",    "syntaxOK": false,   "bonus": false  },
+  { "code": "{return 1   % 2.5 ; }",    "syntaxOK": false,    "bonus": false  },
+   
+   
+ 
+  { "code": "{return 4   + 2   ; }",   "returns": 6, "syntaxOK": true,    "bonus": false  },
+  { "code": "{return int(4.25+ 2.75) ; }",   "returns": 7, "syntaxOK": true,    "bonus": false  },
+  { "code": "{return int(4.25+ 2.70) ; }",   "returns": 6, "syntaxOK": true,    "bonus": false  },
+  
+  { "code": "{return 5   - 2   ; }",   "returns": 3, "syntaxOK": true,    "bonus": false  },
+  { "code": "{return int(5.25- 2.75) ; }",   "returns": 2, "syntaxOK": true,    "bonus": false  },
+  { "code": "{return int(5.25- 2.70) ; }",   "returns": 2, "syntaxOK": true,    "bonus": false  },
+   
+  { "code": "{return 5   * 2   ; }",   "returns": 10, "syntaxOK": true,    "bonus": false  },
+  { "code": "{return int(5.25* 2.75) ; }",   "returns": 14, "syntaxOK": true,    "bonus": false  },
+   
+  { "code": "{return 7   / 2   ; }",   "returns": 3, "syntaxOK": true,    "bonus": false  },
+  { "code": "{return int(8.25/2.75) ; }",   "returns": 3, "syntaxOK": true,    "bonus": false  },
+
+  { "code": "{return 7   % 3   ; }",   "returns": 1, "syntaxOK": true,    "bonus": false  },
+  
+   
+  { "code": "{return 11 + -(3+2)   ; }",   "returns": 6, "syntaxOK": true,    "bonus": false  },
+  { "code": "{return int(11.25 + -(3.25+2.5)); }", "returns": 5, "syntaxOK": true,    "bonus": false  },
+  
+  
+  { "code": "{if( 1 ) { return 1; } return 2; }", "syntaxOK": true,    "bonus": false  },
+  { "code": "{if( 1.0 ) { return 1; } return 2; }", "syntaxOK": false,    "bonus": false  },
+  { "code": "{if( 1 ) { return 1; } else { return 2; } }", "syntaxOK": true,    "bonus": false  },
+  { "code": "{if( 1.0 ) { return 1; } else { return 2; } }", "syntaxOK": false,    "bonus": false  },
+  { "code": "{while( 1 ) { return 1; } return 2; }", "syntaxOK": true,    "bonus": false  },
+  { "code": "{while( 1.0 ) { return 1; } return 2; }", "syntaxOK": false,    "bonus": false  },
+
+
+  { "code": "int x; { x=2; return int(x); }", "returns": 2, "syntaxOK": true, "bonus": false },
+  { "code": "int x; { x=2.0; return int(x); }", "syntaxOK": false, "bonus": false },
+  { "code": "double x; { x=2.0; return int(x); }",  "syntaxOK": true, "bonus": false },
+  { "code": "double x; { x=2; return int(x); }", "syntaxOK": false, "bonus": false },
+   
+   
+  { "code": "int w; int x; double y; double z; { w=1; x=2; y=3.0; z=4.0; return int(y+z); }", "returns": 7, "syntaxOK": true, "bonus": false },
+  { "code": "int w; int x; double y; double z; { w=1; x=2; y=3.0; z=4.0; return int(w+x+4); }", "returns":  7, "syntaxOK": true, "bonus": false },
+  { "code": "int w; int x; double y; double z; { w=1; x=2.0; y=3.0; z=4.0; return int(y+z); }",  "syntaxOK": false, "bonus": false },
+  { "code": "int w; int x; double y; double z; { w=1; x=2; y=3; z=4.0; return int(y+z); }",  "syntaxOK": false, "bonus": false },
+  { "code": "int w; int x; double y; double z; { w=(1+int(2.5)); x=2; y=7; z=4.0; return w; }",  "syntaxOK": false, "bonus": false },
+  { "code": "int w; int x; double y; double z; { w=(1+int(2.5)); x=2; y=double(7); z=4.0; return w; }",  "returns": 3, "syntaxOK": true, "bonus": false },
+  { "code": "int w; int x; double y; double z; { w=1; x=2; y=3.25+double(x)+0.25; z=4.0; return int(y); }", "returns": 5, "syntaxOK": true, "bonus": false }
+   
+   
+   
+   
+   
+]

@@ -1,0 +1,50 @@
+grammar ssupl;
+
+tokens { SEMI, WHILE, LP, RP, IF, ELSE, RETURN, LBR, RBR, NUM,
+    OR, AND, NOT, RELOP, PLUS, MULOP, MINUS, TYPE, ID,
+    FPNUM, EQ} 
+
+start : program EOF ;
+program : vardecllist braceblock ;
+braceblock : LBR stmts RBR ;
+stmts : stmt stmts | ;
+stmt : cond | loop | returnStmt SEMI | assign SEMI ;
+cond : IF LP expr RP braceblock                     #condNoElse
+     | IF LP expr RP braceblock ELSE braceblock     #condElse
+     ;
+returnStmt : RETURN expr ;
+loop : WHILE LP expr RP braceblock ;
+expr   : orexp ;
+orexp  : orexp OR andexp    #orexp1
+       | andexp             #orexp2
+       ;
+andexp : andexp AND notexp  #andexp1
+       | notexp             #andexp2
+       ;
+notexp : NOT notexp         #notexp1
+       | rel                #notexp2
+       ;
+rel    : sum RELOP sum      #rel1
+       | sum                #rel2
+       ;
+sum    : sum PLUS term      #sum1
+       | sum MINUS term     #sum2
+       | term               #sum3
+       ;
+term   : term MULOP neg     #term1
+       | neg                #term2
+       ;
+neg    : MINUS neg          #neg1
+       | factor             #neg2
+       ;
+factor : NUM                #factor1
+       | LP expr RP         #factor2
+       | ID                 #factor3
+       | FPNUM              #factor4
+       | cast               #factor5
+       ;
+cast   : TYPE LP expr RP    #cast1
+       ;
+vardecllist : vardecl SEMI vardecllist | /*lambda*/ ;
+vardecl : TYPE ID;
+assign : ID EQ expr  ;

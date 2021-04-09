@@ -1,0 +1,25 @@
+SEMI :      ;
+WHILE :     \bwhile\b
+LP :        [(]
+RP :        [)]
+IF :        \bif\b
+ELSE :      \belse\b
+RETURN :    \breturn\b
+LBR :       [{]
+RBR :       [}]
+FPNUM : \d+\.\d+([Ee][-+]?\d+)?
+NUM :       \d+
+WHITESPACE: \s+
+COMMENT:    //[^\n]*
+OR : \bor\b
+AND : \band\b
+NOT : \bnot\b
+RELOP : >=|<=|>|<|!=|==
+PLUS : [+]
+MULOP : [\*/%]
+MINUS : -
+LP : [(]
+RP : [)]
+EQ : =
+TYPE: \b(int|double)\b
+ID : [A-Za-z_]\w*
